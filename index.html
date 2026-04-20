@@ -1,24 +1,182 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vizitka</title>
-<style>
-body{margin:0;font-family:Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f172a,#1e293b);color:#e5e7eb;padding:24px}
-.card{max-width:760px;background:rgba(15,23,42,.85);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:40px;box-shadow:0 24px 80px rgba(0,0,0,.35)}
-h1{margin:0 0 12px;font-size:48px}.sub{font-size:20px;line-height:1.6;color:#cbd5e1}.btn{display:inline-block;margin-top:18px;padding:14px 20px;border-radius:14px;background:#38bdf8;color:#082f49;text-decoration:none;font-weight:700}.footer{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:#94a3b8;font-size:14px}.footer a{color:#38bdf8;text-decoration:none}.footer a:hover{text-decoration:underline}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vizitka</title>
+  <meta name="description" content="Персональная визитка Максима Марковича" />
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,Arial,sans-serif;
+      color:#e5e7eb;
+      background:
+        radial-gradient(circle at top right, rgba(56,189,248,.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(99,102,241,.16), transparent 30%),
+        linear-gradient(135deg,#0f172a,#1e293b);
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .page{max-width:1100px;margin:0 auto;padding:28px}
+    .card{
+      background:rgba(15,23,42,.78);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:28px;
+      box-shadow:0 24px 80px rgba(0,0,0,.35);
+      backdrop-filter:blur(10px);
+      overflow:hidden;
+    }
+    .hero{padding:56px 40px 32px}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 14px;border-radius:999px;
+      border:1px solid rgba(56,189,248,.3);
+      background:rgba(56,189,248,.08);
+      color:#7dd3fc;font-size:14px;margin-bottom:18px
+    }
+    h1{margin:0;font-size:clamp(38px,7vw,68px);line-height:1.02;max-width:760px}
+    .lead{margin:18px 0 0;max-width:780px;font-size:20px;line-height:1.7;color:#cbd5e1}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 20px;border-radius:14px;text-decoration:none;
+      font-weight:700;transition:.18s ease
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:#38bdf8;color:#082f49}
+    .btn-secondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#e5e7eb}
+    .section{padding:0 40px 32px}
+    .section-title{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;margin:0 0 16px}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .panel{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:22px
+    }
+    .panel h3{margin:0 0 10px;font-size:20px}
+    .panel p,.panel li{margin:0;color:#cbd5e1;line-height:1.7}
+    .panel ul{margin:0;padding-left:18px}
+    .tech-list{display:flex;flex-wrap:wrap;gap:10px}
+    .tech{
+      padding:10px 14px;border-radius:999px;
+      background:rgba(56,189,248,.08);
+      border:1px solid rgba(56,189,248,.16);
+      color:#dbeafe;font-size:14px
+    }
+    .footer{
+      margin-top:10px;padding:24px 40px 32px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+      color:#94a3b8;font-size:14px
+    }
+    .footer a{text-decoration:none;color:#7dd3fc}
+    .footer a:hover{text-decoration:underline}
+    @media (max-width: 860px){.grid{grid-template-columns:1fr}.hero,.section,.footer{padding-left:24px;padding-right:24px}.hero{padding-top:36px}}
+  </style>
 </head>
 <body>
-<main class="card">
-<h1>Привет, я Максим</h1>
-<p class="sub">Я full-stack разработчик. Создаю и поддерживаю сайты, интернет-магазины, админ-панели, CRM/ERP-подобные системы, API-интеграции и автоматизацию бизнес-процессов. Работаю с кастомной разработкой под задачи бизнеса: от frontend и backend до серверов, баз данных и сопровождения проектов.</p>
-<a class="btn" href="https://github.com/maxfullstackcom" target="_blank">GitHub</a>
-<footer class="footer">
-  <span>© 2026 Максим Маркович. Сделано с вниманием к деталям.</span>
-  <a href="https://github.com/maxfullstackcom" target="_blank">maxfullstackcom</a>
-</footer>
-</main>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const services = [
+      {
+        title: 'Веб-разработка',
+        text: 'Создаю и поддерживаю сайты, интернет-магазины, админ-панели и кастомные веб-системы под задачи бизнеса.'
+      },
+      {
+        title: 'Интеграции и автоматизация',
+        text: 'Подключаю API, CRM, ERP-подобные процессы, платёжные сервисы, документы и автоматизацию рабочих сценариев.'
+      },
+      {
+        title: 'Поддержка и инфраструктура',
+        text: 'Работаю с backend, frontend, серверами, базами данных, деплоем, сопровождением проектов и технической диагностикой.'
+      }
+    ];
+
+    const technologies = [
+      'PHP', 'Laravel', 'WordPress', 'WooCommerce', 'JavaScript', 'Vue', 'React', 'MySQL', 'Directus', 'Linux', 'AWS', 'API'
+    ];
+
+    function Badge() {
+      return <div className="badge">● Full-stack Developer</div>;
+    }
+
+    function Hero() {
+      return (
+        <section className="hero">
+          <Badge />
+          <h1>Привет, я Максим</h1>
+          <p className="lead">
+            Я full-stack разработчик. Создаю и поддерживаю сайты, интернет-магазины, админ-панели, CRM/ERP-подобные системы, API-интеграции и автоматизацию бизнес-процессов.
+            Работаю с кастомной разработкой под реальные задачи бизнеса: от frontend и backend до серверов, баз данных и сопровождения проектов.
+          </p>
+          <div className="actions">
+            <a className="btn btn-primary" href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">GitHub</a>
+            <a className="btn btn-secondary" href="mailto:your@email.com">Связаться</a>
+          </div>
+        </section>
+      );
+    }
+
+    function Services() {
+      return (
+        <section className="section">
+          <p className="section-title">Чем я занимаюсь</p>
+          <div className="grid">
+            {services.map((item) => (
+              <article className="panel" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function Stack() {
+      return (
+        <section className="section">
+          <p className="section-title">Стек и инструменты</p>
+          <div className="panel">
+            <div className="tech-list">
+              {technologies.map((tech) => (
+                <span className="tech" key={tech}>{tech}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer className="footer">
+          <span>© 2026 Максим Маркович. Сделано с вниманием к деталям.</span>
+          <a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">maxfullstackcom</a>
+        </footer>
+      );
+    }
+
+    function App() {
+      return (
+        <div className="page">
+          <main className="card">
+            <Hero />
+            <Services />
+            <Stack />
+            <Footer />
+          </main>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
 </body>
 </html>
