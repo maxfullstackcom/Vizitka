@@ -1,0 +1,10 @@
+name = "vizitka-contact-relay"
+main = "worker.js"
+compatibility_date = "2026-04-21"
+
+[[kv_namespaces]]
+binding = "CONTACT_KV"
+id = "PUT_YOUR_KV_NAMESPACE_ID_HERE"
+
+[vars]
+ALLOWED_ORIGIN = "https://maxfullstackcom.github.io"
