@@ -31,8 +31,7 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    const TELEGRAM_WEBHOOK_URL = 'https://example.your-subdomain.workers.dev';
-    const SITE_ORIGIN = 'https://maxfullstackcom.github.io';
+    const GOOGLE_SCRIPT_WEB_APP_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
     const services = [
       { title: 'Веб-разработка', text: 'Создаю и поддерживаю сайты, интернет-магазины, админ-панели и кастомные веб-системы под задачи бизнеса.' },
       { title: 'Интеграции и автоматизация', text: 'Подключаю API, CRM, ERP-подобные процессы, платёжные сервисы, документы и автоматизацию рабочих сценариев.' },
@@ -61,12 +60,12 @@
         setStatus({ type:'', text:'' });
         if (form.website.trim()) { setStatus({ type:'err', text:'Отправка отклонена.' }); return; }
         if (!form.contact.trim() || !form.message.trim()) { setStatus({ type:'err', text:'Заполни хотя бы контакт и сообщение.' }); return; }
-        if (TELEGRAM_WEBHOOK_URL.includes('example.your-subdomain.workers.dev')) { setStatus({ type:'err', text:'Сначала укажи реальный URL Cloudflare Worker в TELEGRAM_WEBHOOK_URL.' }); return; }
+        if (GOOGLE_SCRIPT_WEB_APP_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) { setStatus({ type:'err', text:'Сначала укажи реальный URL Google Apps Script Web App.' }); return; }
         setLoading(true);
         try {
-          const response = await fetch(TELEGRAM_WEBHOOK_URL, {
+          const response = await fetch(GOOGLE_SCRIPT_WEB_APP_URL, {
             method:'POST',
-            headers:{ 'Content-Type':'application/json' },
+            headers:{ 'Content-Type':'text/plain;charset=utf-8' },
             body: JSON.stringify({
               name: form.name.trim(),
               contact: form.contact.trim(),
@@ -79,11 +78,11 @@
             })
           });
           const data = await response.json().catch(() => ({}));
-          if (!response.ok || !data.ok) throw new Error(data.error || 'Webhook error');
+          if (!response.ok || !data.ok) throw new Error(data.error || 'Apps Script error');
           setStatus({ type:'ok', text:'Сообщение отправлено. Скоро свяжусь с тобой.' });
           setForm({ name:'', contact:'', message:'', company:'', website:'' });
         } catch (err) {
-          setStatus({ type:'err', text:'Не удалось отправить сообщение. Проверь Worker URL и секреты.' });
+          setStatus({ type:'err', text:'Не удалось отправить сообщение. Проверь URL Google Apps Script и права доступа.' });
         } finally { setLoading(false); }
       }
       return <form className="form" onSubmit={onSubmit}>
@@ -92,12 +91,12 @@
         <div className="field"><label htmlFor="contact">Контакт</label><input className="input" id="contact" name="contact" value={form.contact} onChange={onChange} placeholder="Telegram, email или телефон" required /></div>
         <div className="field"><label htmlFor="message">Сообщение</label><textarea className="textarea" id="message" name="message" value={form.message} onChange={onChange} placeholder="Кратко опиши задачу" required /></div>
         <div className="field hidden" aria-hidden="true"><label htmlFor="website">Website</label><input tabIndex="-1" autoComplete="off" className="input" id="website" name="website" value={form.website} onChange={onChange} /></div>
-        <div className="hint">Форма отправляет данные в Cloudflare Worker, а уже он пересылает их в Telegram. В браузере токен бота не хранится.</div>
+        <div className="hint">Форма отправляет данные в Google Apps Script Web App, а он записывает заявку в Google Sheets.</div>
         {status.text ? <div className={`status ${status.type === 'ok' ? 'ok' : 'err'}`}>{status.text}</div> : null}
         <div className="actions"><button className="btn btn-primary" type="submit" disabled={loading}>{loading ? 'Отправка...' : 'Отправить'}</button></div>
       </form>;
     }
-    function ContactPage(){ return <><p className="section-title">Контакты</p><h2>Связаться со мной</h2><p className="muted">Можно написать по проекту, поддержке существующей системы, интеграции, автоматизации или оценке задачи.</p><div className="grid-2 section"><article className="panel"><div className="contact-list"><div className="contact-item"><strong>GitHub</strong><a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">github.com/maxfullstackcom</a></div><div className="contact-item"><strong>Формат работы</strong><span>Разработка, сопровождение, доработка и техническая поддержка проектов</span></div><div className="contact-item"><strong>Worker URL</strong><span>Замени <code>TELEGRAM_WEBHOOK_URL</code> на свой адрес Cloudflare Worker.</span></div><div className="contact-item"><strong>Origin</strong><span>Для Worker уже заложен origin <code>{SITE_ORIGIN}</code>.</span></div></div></article><article className="panel"><h3>Форма обращения</h3><ContactForm /></article></div></>; }
+    function ContactPage(){ return <><p className="section-title">Контакты</p><h2>Связаться со мной</h2><p className="muted">Можно написать по проекту, поддержке существующей системы, интеграции, автоматизации или оценке задачи.</p><div className="grid-2 section"><article className="panel"><div className="contact-list"><div className="contact-item"><strong>GitHub</strong><a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">github.com/maxfullstackcom</a></div><div className="contact-item"><strong>Формат работы</strong><span>Разработка, сопровождение, доработка и техническая поддержка проектов</span></div><div className="contact-item"><strong>Google Sheets</strong><span>Заявки будут попадать в таблицу через Google Apps Script.</span></div></div></article><article className="panel"><h3>Форма обращения</h3><ContactForm /></article></div></>; }
     function Footer(){ return <footer className="footer"><span>© 2026. Сделано с вниманием к деталям.</span><a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">maxfullstackcom</a></footer>; }
     function App(){ const [current, setCurrent] = React.useState(getPageFromHash()); React.useEffect(() => { const onHashChange = () => setCurrent(getPageFromHash()); window.addEventListener('hashchange', onHashChange); if (!window.location.hash) window.location.hash = '#/home'; return () => window.removeEventListener('hashchange', onHashChange); }, []); let pageContent; if (current === 'services') pageContent = <ServicesPage />; else if (current === 'about') pageContent = <AboutPage />; else if (current === 'contact') pageContent = <ContactPage />; else pageContent = <HomePage />; return <div className="page"><main className="shell"><Nav current={current} /><section className="content">{pageContent}</section><Footer /></main></div>; }
     ReactDOM.createRoot(document.getElementById('root')).render(<App />);
