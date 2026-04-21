@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://v.maxd.pro/sitemap.xml
