@@ -1,114 +1,152 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vizitka</title>
-  <meta name="description" content="Визитка full-stack разработчика" />
+  <meta name="description" content="Full-stack developer: websites, integrations, automation and support." />
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family:Inter,Arial,sans-serif;color:#e5e7eb;background:radial-gradient(circle at top right, rgba(56,189,248,.18), transparent 28%),radial-gradient(circle at bottom left, rgba(99,102,241,.16), transparent 30%),linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh}
-    a{color:inherit}.page{max-width:1120px;margin:0 auto;padding:28px}.shell{background:rgba(15,23,42,.78);border:1px solid rgba(255,255,255,.1);border-radius:28px;box-shadow:0 24px 80px rgba(0,0,0,.35);backdrop-filter:blur(10px);overflow:hidden}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02)}
-    .brand{font-weight:800;font-size:18px;letter-spacing:.02em}.nav-links{display:flex;gap:10px;flex-wrap:wrap}.nav-link{text-decoration:none;padding:10px 14px;border-radius:12px;color:#cbd5e1;border:1px solid transparent;transition:.18s ease}.nav-link:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)}.nav-link.active{background:rgba(56,189,248,.1);color:#7dd3fc;border-color:rgba(56,189,248,.22)}
-    .content{padding:42px 40px 28px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid rgba(56,189,248,.3);background:rgba(56,189,248,.08);color:#7dd3fc;font-size:14px;margin-bottom:18px}
-    h1{margin:0;font-size:clamp(34px,7vw,64px);line-height:1.02;max-width:820px}h2{margin:0 0 14px;font-size:28px}h3{margin:0 0 10px;font-size:20px}.lead{margin:18px 0 0;max-width:820px;font-size:20px;line-height:1.7;color:#cbd5e1}.muted{color:#cbd5e1;line-height:1.8;font-size:18px}
-    .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;text-decoration:none;font-weight:700;transition:.18s ease;border:none;cursor:pointer}.btn:hover{transform:translateY(-1px)}.btn-primary{background:#38bdf8;color:#082f49}.btn-secondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#e5e7eb}.btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
-    .section{margin-top:34px}.section-title{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px}.panel p,.panel li,.panel span{margin:0;color:#cbd5e1;line-height:1.7}.panel ul{margin:0;padding-left:18px}.panel-cta{margin-top:16px}
-    .tech-list{display:flex;flex-wrap:wrap;gap:10px}.tech{padding:10px 14px;border-radius:999px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.16);color:#dbeafe;font-size:14px}
-    .contact-list{display:grid;gap:14px}.contact-item{padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.contact-item strong{display:block;margin-bottom:6px;font-size:15px;color:#7dd3fc}
-    .form{display:grid;gap:14px;margin-top:6px}.field{display:grid;gap:8px}.field label{font-size:14px;color:#cbd5e1}.input,.textarea,.select{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#e5e7eb;padding:14px 16px;font:inherit;outline:none}.input:focus,.textarea:focus,.select:focus{border-color:rgba(56,189,248,.45);box-shadow:0 0 0 3px rgba(56,189,248,.12)}.textarea{min-height:140px;resize:vertical}.select option{color:#111827}
-    .hint{font-size:13px;color:#94a3b8;line-height:1.6}.status{padding:14px 16px;border-radius:14px;font-size:14px}.status.ok{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);color:#bbf7d0}.status.err{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);color:#fecaca}.hidden{display:none}
-    .footer{margin-top:10px;padding:24px 40px 32px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:#94a3b8;font-size:14px}.footer a{text-decoration:none;color:#7dd3fc}.footer a:hover{text-decoration:underline}
-    @media (max-width: 860px){.grid,.grid-2{grid-template-columns:1fr}.content,.footer{padding-left:24px;padding-right:24px}.nav{padding:16px 20px;align-items:flex-start;flex-direction:column}}
+    *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:Inter,Arial,sans-serif;color:#e5e7eb;background:radial-gradient(circle at top right, rgba(56,189,248,.18), transparent 28%),radial-gradient(circle at bottom left, rgba(99,102,241,.16), transparent 30%),linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh}a{color:inherit}.page{max-width:1120px;margin:0 auto;padding:28px}.shell{background:rgba(15,23,42,.78);border:1px solid rgba(255,255,255,.1);border-radius:28px;box-shadow:0 24px 80px rgba(0,0,0,.35);backdrop-filter:blur(10px);overflow:hidden}.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02)}.brand{font-weight:800;font-size:18px;letter-spacing:.02em}.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.nav-links{display:flex;gap:10px;flex-wrap:wrap}.nav-link{text-decoration:none;padding:10px 14px;border-radius:12px;color:#cbd5e1;border:1px solid transparent;transition:.18s ease}.nav-link:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)}.nav-link.active{background:rgba(56,189,248,.1);color:#7dd3fc;border-color:rgba(56,189,248,.22)}.lang-switch{display:flex;gap:6px;flex-wrap:wrap}.lang-btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#cbd5e1;cursor:pointer}.lang-btn.active{background:rgba(56,189,248,.12);color:#7dd3fc;border-color:rgba(56,189,248,.24)}.content{padding:42px 40px 28px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid rgba(56,189,248,.3);background:rgba(56,189,248,.08);color:#7dd3fc;font-size:14px;margin-bottom:18px}h1{margin:0;font-size:clamp(34px,7vw,64px);line-height:1.02;max-width:860px}h2{margin:0 0 14px;font-size:28px}h3{margin:0 0 10px;font-size:20px}.lead{margin:18px 0 0;max-width:860px;font-size:20px;line-height:1.7;color:#cbd5e1}.muted{color:#cbd5e1;line-height:1.8;font-size:18px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;text-decoration:none;font-weight:700;transition:.18s ease;border:none;cursor:pointer}.btn:hover{transform:translateY(-1px)}.btn-primary{background:#38bdf8;color:#082f49}.btn-secondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#e5e7eb}.btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}.section{margin-top:34px}.section-title{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}.stat{padding:18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.stat strong{display:block;font-size:24px;margin-bottom:6px}.panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px}.panel p,.panel li,.panel span{margin:0;color:#cbd5e1;line-height:1.7}.panel ul{margin:0;padding-left:18px}.panel-cta{margin-top:16px}.tech-list{display:flex;flex-wrap:wrap;gap:10px}.tech{padding:10px 14px;border-radius:999px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.16);color:#dbeafe;font-size:14px}.contact-list{display:grid;gap:14px}.contact-item{padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.contact-item strong{display:block;margin-bottom:6px;font-size:15px;color:#7dd3fc}.form{display:grid;gap:14px;margin-top:6px}.field{display:grid;gap:8px}.field label{font-size:14px;color:#cbd5e1}.input,.textarea,.select{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#e5e7eb;padding:14px 16px;font:inherit;outline:none}.input:focus,.textarea:focus,.select:focus{border-color:rgba(56,189,248,.45);box-shadow:0 0 0 3px rgba(56,189,248,.12)}.textarea{min-height:140px;resize:vertical}.select option{color:#111827}.status{padding:14px 16px;border-radius:14px;font-size:14px}.status.ok{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);color:#bbf7d0}.status.err{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);color:#fecaca}.hidden{display:none}.footer{margin-top:10px;padding:24px 40px 32px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:#94a3b8;font-size:14px}.footer a{text-decoration:none;color:#7dd3fc}.footer a:hover{text-decoration:underline}.rtl{text-align:right;direction:rtl}.rtl .nav{direction:rtl}.rtl .nav-right{direction:rtl}.rtl .nav-links{direction:rtl}.rtl .actions{direction:rtl}.rtl .field label,.rtl input,.rtl textarea,.rtl select{text-align:right}.rtl .panel ul{padding-right:18px;padding-left:0}.rtl .contact-list,.rtl .form{direction:rtl}@media (max-width:860px){.grid,.grid-2,.stats{grid-template-columns:1fr}.content,.footer{padding-left:24px;padding-right:24px}.nav{padding:16px 20px;align-items:flex-start;flex-direction:column}.nav-right{width:100%}}
   </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="text/babel">
     const GOOGLE_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwJJNtcMBAuyc4z-1OLpGsQDQ7fArI9sstqE_GBdBIB1BF-AqbVJpyFpjp0jjbBhG4l/exec';
-    const services = [
-      { key:'website', title: 'Веб-разработка', text: 'Создаю и поддерживаю сайты, интернет-магазины, админ-панели и кастомные веб-системы под задачи бизнеса.' },
-      { key:'integration', title: 'Интеграции и автоматизация', text: 'Подключаю API, CRM, ERP-подобные процессы, платёжные сервисы, документы и автоматизацию рабочих сценариев.' },
-      { key:'support', title: 'Поддержка и инфраструктура', text: 'Работаю с backend, frontend, серверами, базами данных, деплоем, сопровождением проектов и технической диагностикой.' },
-      { key:'store', title: 'Интернет-магазин', text: 'Разработка или доработка магазина, каталога, корзины, оплаты, доставки и административной части.' },
-      { key:'crm', title: 'CRM / внутренняя система', text: 'Сборка рабочих кабинетов, внутренних панелей, учёта данных и бизнес-процессов.' },
-      { key:'audit', title: 'Технический аудит', text: 'Разбор текущего проекта, проблем, узких мест, архитектуры и вариантов развития.' }
-    ];
+
+    const dictionary = {
+      en: {
+        langLabel:'Language', brand:'🚀 Full-stack Developer', badge:'⚡ Websites • Integrations • Automation',
+        nav:{home:'Home',services:'Services',order:'Order Service',about:'About',contact:'Contact'},
+        heroTitle:'Build faster. Automate smarter. Fix what blocks your business. 💼',
+        heroLead:'I help businesses launch websites, improve existing systems, connect services, automate workflows, and solve technical bottlenecks with practical full-stack development.',
+        primaryCta:'📩 Order service', secondaryCta:'💻 GitHub', sectionMain:'Why clients reach out',
+        stats:[['⚙️ Practical solutions','Business-focused development'],['⏱️ Faster delivery','Clear scope and quick execution'],['🛠️ Ongoing support','From idea to maintenance']],
+        servicesTitle:'Services', servicesHead:'What I can help with', servicesLead:'From new builds to upgrades and rescue work — I cover both product-facing and technical sides of a project.',
+        aboutTitle:'About', aboutHead:'Development for real business needs', aboutCards:[['🧠 Approach','I prefer practical development: understand the goal, remove unnecessary complexity, and deliver something stable and useful.'],['🔒 Focus','Reliability, readable logic, maintainable code, and solutions that can keep growing without chaos.']],
+        stack:'Stack & tools',
+        orderTitle:'Order Service', orderHead:'Send a structured request', orderLead:'Choose the service, describe the task, and leave your contact details. This helps me respond faster and more accurately. ✨',
+        orderListTitle:'What you can order', orderListHint:'You can choose a service or simply describe the task in your own words.', formTitle:'Request form',
+        contactTitle:'Contact', contactHead:'Let’s talk', contactLead:'You can reach out about a new project, upgrade, integration, automation, audit, or technical support.',
+        contactCards:[['💻 GitHub','github.com/maxfullstackcom'],['🤝 Work format','Development, support, upgrades and technical help'],['🔥 Quick start','Use the order page for a structured request']],
+        quickReq:'Quick request', goOrder:'📨 Go to order page',
+        form:{service:'Service', choose:'Choose a service', name:'Name', namePh:'How should I call you?', company:'Company', companyPh:'Optional', contact:'Contact', contactPh:'Telegram, email or phone', budget:'Budget / estimate', budgetPh:'For example: up to $1000 or needs estimate', message:'Task details', messagePh:'Describe what needs to be done, timeline, and what already exists', send:'Send request', sending:'Sending...', errors:{basic:'Please fill in at least contact and task description.', denied:'Submission rejected.', fail:'Could not send the request. Please try again later.'}, ok:'✅ Request sent. I will review it soon.'},
+        footer:'Made with attention to detail.'
+      },
+      ru: {
+        langLabel:'Язык', brand:'🚀 Full-stack разработчик', badge:'⚡ Сайты • Интеграции • Автоматизация',
+        nav:{home:'Главная',services:'Услуги',order:'Заказать услугу',about:'Обо мне',contact:'Контакты'},
+        heroTitle:'Запускаю быстрее. Автоматизирую умнее. Убираю технические узкие места. 💼',
+        heroLead:'Помогаю бизнесу запускать сайты, улучшать существующие системы, связывать сервисы, автоматизировать процессы и решать технические проблемы через практичную full-stack разработку.',
+        primaryCta:'📩 Заказать услугу', secondaryCta:'💻 GitHub', sectionMain:'Почему ко мне обращаются',
+        stats:[['⚙️ Практичный подход','Разработка под задачи бизнеса'],['⏱️ Быстрее к результату','Понятный объём и быстрая реализация'],['🛠️ Поддержка','От идеи до сопровождения']],
+        servicesTitle:'Услуги', servicesHead:'Чем я могу помочь', servicesLead:'От новых проектов до доработок и спасения существующих систем — беру и продуктовую, и техническую часть.',
+        aboutTitle:'Обо мне', aboutHead:'Разработка под реальные задачи бизнеса', aboutCards:[['🧠 Подход','Мне ближе практичная разработка: понять цель, убрать лишнюю сложность и довести решение до стабильного рабочего состояния.'],['🔒 Фокус','Надёжность, понятная логика, поддерживаемый код и решения, которые можно спокойно развивать дальше.']],
+        stack:'Стек и инструменты',
+        orderTitle:'Заказать услугу', orderHead:'Оставить структурированную заявку', orderLead:'Выбери услугу, опиши задачу и оставь контакт. Так я смогу быстрее понять объём и ответить по делу. ✨',
+        orderListTitle:'Что можно заказать', orderListHint:'Можно выбрать услугу или просто описать задачу своими словами.', formTitle:'Форма заявки',
+        contactTitle:'Контакты', contactHead:'Связаться со мной', contactLead:'Можно написать по новому проекту, доработке, интеграции, автоматизации, аудиту или технической поддержке.',
+        contactCards:[['💻 GitHub','github.com/maxfullstackcom'],['🤝 Формат работы','Разработка, сопровождение, доработка и техническая помощь'],['🔥 Быстрый старт','Для понятной заявки используй страницу заказа']],
+        quickReq:'Быстрый запрос', goOrder:'📨 Перейти к заказу',
+        form:{service:'Услуга', choose:'Выбери услугу', name:'Имя', namePh:'Как к тебе обращаться?', company:'Компания', companyPh:'Необязательно', contact:'Контакт', contactPh:'Telegram, email или телефон', budget:'Бюджет / ориентир', budgetPh:'Например: до 3000 ₪ или нужно оценить', message:'Описание задачи', messagePh:'Опиши, что нужно сделать, сроки и что уже есть', send:'Отправить заявку', sending:'Отправка...', errors:{basic:'Заполни хотя бы контакт и описание задачи.', denied:'Отправка отклонена.', fail:'Не удалось отправить заявку. Попробуй ещё раз позже.'}, ok:'✅ Заявка отправлена. Я скоро её посмотрю.'},
+        footer:'Сделано с вниманием к деталям.'
+      },
+      he: {
+        langLabel:'שפה', brand:'🚀 מפתח Full-stack', badge:'⚡ אתרים • אינטגרציות • אוטומציה',
+        nav:{home:'ראשי',services:'שירותים',order:'הזמנת שירות',about:'עליי',contact:'יצירת קשר'},
+        heroTitle:'בונים מהר יותר. מאוטומטים חכם יותר. פותרים חסמים טכניים לעסק. 💼',
+        heroLead:'אני עוזר לעסקים להקים אתרים, לשפר מערכות קיימות, לחבר בין שירותים, לאוטומט תהליכים ולפתור צווארי בקבוק טכניים בעזרת פיתוח full-stack פרקטי.',
+        primaryCta:'📩 להזמין שירות', secondaryCta:'💻 GitHub', sectionMain:'למה פונים אליי',
+        stats:[['⚙️ פתרונות פרקטיים','פיתוח שמכוון לתוצאה עסקית'],['⏱️ התקדמות מהירה יותר','היקף ברור וביצוע מהיר'],['🛠️ ליווי ותמיכה','מרעיון ועד תחזוקה']],
+        servicesTitle:'שירותים', servicesHead:'איך אני יכול לעזור', servicesLead:'מפרויקטים חדשים ועד שדרוגים, תיקונים ועבודה על מערכות קיימות — אני מטפל גם בצד המוצר וגם בצד הטכני.',
+        aboutTitle:'עליי', aboutHead:'פיתוח שמבוסס על צרכים אמיתיים של העסק', aboutCards:[['🧠 גישה','אני מעדיף פיתוח פרקטי: להבין את המטרה, להוריד מורכבות מיותרת ולהגיע לפתרון יציב ושימושי.'],['🔒 מיקוד','אמינות, לוגיקה ברורה, קוד שנוח לתחזק ופתרונות שאפשר להמשיך לפתח בלי כאוס.']],
+        stack:'טכנולוגיות וכלים',
+        orderTitle:'הזמנת שירות', orderHead:'שליחת בקשה מסודרת', orderLead:'בחר שירות, תאר בקצרה את המשימה והשאר פרטי קשר. כך אוכל להבין מהר יותר את היקף העבודה ולחזור אליך בצורה מדויקת. ✨',
+        orderListTitle:'מה אפשר להזמין', orderListHint:'אפשר לבחור שירות ספציפי או פשוט לתאר את הצורך במילים שלך.', formTitle:'טופס בקשה',
+        contactTitle:'יצירת קשר', contactHead:'בוא נדבר', contactLead:'אפשר לפנות לגבי פרויקט חדש, שדרוג מערכת קיימת, אינטגרציה, אוטומציה, ביקורת טכנית או תמיכה.',
+        contactCards:[['💻 GitHub','github.com/maxfullstackcom'],['🤝 אופן העבודה','פיתוח, תחזוקה, שדרוגים ותמיכה טכנית'],['🔥 התחלה מהירה','לבקשה מסודרת עדיף להשתמש בעמוד ההזמנה']],
+        quickReq:'פנייה מהירה', goOrder:'📨 מעבר להזמנה',
+        form:{service:'שירות', choose:'בחר שירות', name:'שם', namePh:'איך לפנות אליך?', company:'חברה', companyPh:'לא חובה', contact:'פרטי קשר', contactPh:'טלגרם, אימייל או טלפון', budget:'תקציב / כיוון', budgetPh:'למשל: עד 3000 ₪ או צריך הערכה', message:'תיאור המשימה', messagePh:'כתוב מה צריך לעשות, לוחות זמנים ומה כבר קיים', send:'שליחת בקשה', sending:'שולח...', errors:{basic:'נא למלא לפחות פרטי קשר ותיאור המשימה.', denied:'השליחה נדחתה.', fail:'לא ניתן היה לשלוח את הבקשה. נסה שוב מאוחר יותר.'}, ok:'✅ הבקשה נשלחה. אבדוק אותה בקרוב.'},
+        footer:'נבנה עם תשומת לב לפרטים.'
+      }
+    };
+
+    const serviceContent = {
+      website:{en:['🌐 Website development','Websites, admin panels, and custom web systems tailored to business needs.'],ru:['🌐 Веб-разработка','Сайты, админки и кастомные веб-системы под задачи бизнеса.'],he:['🌐 פיתוח אתרים','אתרים, פאנלים לניהול ומערכות ווב מותאמות לצורכי העסק.']},
+      integration:{en:['🔗 Integrations & automation','APIs, documents, workflows, CRM/ERP-like connections and process automation.'],ru:['🔗 Интеграции и автоматизация','API, документы, процессы, CRM/ERP-подобные связки и автоматизация.'],he:['🔗 אינטגרציות ואוטומציה','API, מסמכים, תהליכים, חיבורים בין מערכות ואוטומציה של עבודה.']},
+      support:{en:['🛠️ Support & infrastructure','Backend, frontend, databases, deployment, hosting, diagnostics and support.'],ru:['🛠️ Поддержка и инфраструктура','Backend, frontend, базы данных, деплой, хостинг, диагностика и поддержка.'],he:['🛠️ תמיכה ותשתיות','Backend, frontend, מסדי נתונים, דיפלוי, אחסון, דיאגנוסטיקה ותמיכה.']},
+      store:{en:['🛒 Online store','Storefronts, cart, payments, shipping, catalog and admin improvements.'],ru:['🛒 Интернет-магазин','Каталог, корзина, оплата, доставка и улучшение административной части.'],he:['🛒 חנות אונליין','קטלוג, סל קניות, תשלומים, משלוחים ושיפור אזור הניהול.']},
+      crm:{en:['📊 CRM / internal system','Dashboards, internal tools, tracking flows and business process management.'],ru:['📊 CRM / внутренняя система','Кабинеты, внутренние инструменты, учёт и управление процессами.'],he:['📊 CRM / מערכת פנימית','דשבורדים, כלים פנימיים, מעקב וניהול תהליכים עסקיים.']},
+      audit:{en:['🧪 Technical audit','Review of bottlenecks, architecture, risks, and realistic next steps.'],ru:['🧪 Технический аудит','Разбор узких мест, архитектуры, рисков и реалистичных шагов дальше.'],he:['🧪 ביקורת טכנית','בדיקת צווארי בקבוק, ארכיטקטורה, סיכונים והצעדים הבאים.']}
+    };
+
+    const serviceKeys = ['website','integration','support','store','crm','audit'];
     const technologies = ['PHP','Laravel','WordPress','WooCommerce','JavaScript','Vue','React','MySQL','Directus','Linux','AWS','API'];
-    const pages = [
-      { key: 'home', label: 'Главная' },
-      { key: 'services', label: 'Услуги' },
-      { key: 'order', label: 'Заказать услугу' },
-      { key: 'about', label: 'Обо мне' },
-      { key: 'contact', label: 'Контакты' }
-    ];
-    function getPageFromHash(){ const key = window.location.hash.replace('#/','').split('?')[0] || 'home'; return pages.some(p => p.key === key) ? key : 'home'; }
-    function getServiceTitle(serviceKey){ const service = services.find(s => s.key === serviceKey); return service ? service.title : ''; }
-    function getServiceFromHash(){ const raw = window.location.hash.split('?')[1] || ''; const params = new URLSearchParams(raw); const service = params.get('service') || ''; return services.some(s => s.key === service) ? service : ''; }
-    function Badge(){ return <div className="badge">● Full-stack Developer</div>; }
-    function Nav({ current }){ return <nav className="nav"><div className="brand">Full-stack Developer</div><div className="nav-links">{pages.map(page => <a key={page.key} href={`#/${page.key}`} className={`nav-link ${current === page.key ? 'active' : ''}`}>{page.label}</a>)}</div></nav>; }
-    function HomePage(){ return <><Badge /><h1>Разработка, интеграции и автоматизация под задачи бизнеса</h1><p className="lead">Создаю и поддерживаю сайты, интернет-магазины, админ-панели, CRM/ERP-подобные системы, API-интеграции и автоматизацию бизнес-процессов. Работаю с кастомной разработкой под реальные задачи: от frontend и backend до серверов, баз данных и сопровождения проектов.</p><div className="actions"><a className="btn btn-primary" href="#/order">Заказать услугу</a><a className="btn btn-secondary" href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">GitHub</a></div><section className="section"><p className="section-title">Основные направления</p><div className="grid">{services.slice(0,3).map(item => <article className="panel" key={item.key}><h3>{item.title}</h3><p>{item.text}</p><div className="panel-cta"><a className="btn btn-secondary" href={`#/order?service=${item.key}`}>Заказать</a></div></article>)}</div></section></>; }
-    function ServicesPage(){ return <><p className="section-title">Услуги</p><h2>Чем я могу помочь</h2><p className="muted">Беру в работу как новые проекты, так и поддержку существующих систем. Делаю не только интерфейсы, но и всю техническую часть вокруг продукта.</p><div className="grid section">{services.map(item => <article className="panel" key={item.key}><h3>{item.title}</h3><p>{item.text}</p><div className="panel-cta"><a className="btn btn-secondary" href={`#/order?service=${item.key}`}>Заказать услугу</a></div></article>)}</div></>; }
-    function AboutPage(){ return <><p className="section-title">Обо мне</p><h2>Разработка под реальные задачи</h2><div className="grid-2 section"><article className="panel"><h3>Подход</h3><p>Мне ближе практичная разработка: понять задачу бизнеса, убрать лишнее, собрать устойчивое решение и довести его до рабочего состояния.</p></article><article className="panel"><h3>Что важно</h3><p>Надёжность, понятная логика, поддерживаемый код, аккуратная интеграция с текущими системами и возможность спокойно развивать проект дальше.</p></article></div><section className="section"><p className="section-title">Стек и инструменты</p><div className="panel"><div className="tech-list">{technologies.map(tech => <span className="tech" key={tech}>{tech}</span>)}</div></div></section></>; }
-    function LeadForm({ initialService = '' }){
+    const pageKeys = ['home','services','order','about','contact'];
+
+    function getInitialLang(){ const hash = window.location.hash.split('?')[1] || ''; const p = new URLSearchParams(hash).get('lang'); return ['en','ru','he'].includes(p) ? p : 'en'; }
+    function getPageFromHash(){ const key = window.location.hash.replace('#/','').split('?')[0] || 'home'; return pageKeys.includes(key) ? key : 'home'; }
+    function getServiceFromHash(){ const raw = window.location.hash.split('?')[1] || ''; const params = new URLSearchParams(raw); const service = params.get('service') || ''; return serviceKeys.includes(service) ? service : ''; }
+    function setHash(page, lang, service=''){ const params = new URLSearchParams(); params.set('lang', lang); if(service) params.set('service', service); window.location.hash = `#/${page}${params.toString() ? '?' + params.toString() : ''}`; }
+
+    function Nav({ current, lang, setLang, t }) {
+      return <nav className="nav"><div className="brand">{t.brand}</div><div className="nav-right"><div className="nav-links">{pageKeys.map(k => <a key={k} href={`#/${k}?lang=${lang}`} className={`nav-link ${current===k?'active':''}`}>{t.nav[k]}</a>)}</div><div className="lang-switch" aria-label={t.langLabel}><button className={`lang-btn ${lang==='en'?'active':''}`} onClick={() => setLang('en')}>EN</button><button className={`lang-btn ${lang==='ru'?'active':''}`} onClick={() => setLang('ru')}>RU</button><button className={`lang-btn ${lang==='he'?'active':''}`} onClick={() => setLang('he')}>HE</button></div></div></nav>;
+    }
+
+    function HomePage({ lang, t }) {
+      return <><div className="badge">{t.badge}</div><h1>{t.heroTitle}</h1><p className="lead">{t.heroLead}</p><div className="actions"><a className="btn btn-primary" href={`#/order?lang=${lang}`}>{t.primaryCta}</a><a className="btn btn-secondary" href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">{t.secondaryCta}</a></div><div className="stats">{t.stats.map(([a,b],i)=><div className="stat" key={i}><strong>{a}</strong><span>{b}</span></div>)}</div><section className="section"><p className="section-title">{t.sectionMain}</p><div className="grid">{serviceKeys.slice(0,3).map(key => <article className="panel" key={key}><h3>{serviceContent[key][lang][0]}</h3><p>{serviceContent[key][lang][1]}</p><div className="panel-cta"><a className="btn btn-secondary" href={`#/order?lang=${lang}&service=${key}`}>{t.primaryCta}</a></div></article>)}</div></section></>;
+    }
+
+    function ServicesPage({ lang, t }) {
+      return <><p className="section-title">{t.servicesTitle}</p><h2>{t.servicesHead}</h2><p className="muted">{t.servicesLead}</p><div className="grid section">{serviceKeys.map(key => <article className="panel" key={key}><h3>{serviceContent[key][lang][0]}</h3><p>{serviceContent[key][lang][1]}</p><div className="panel-cta"><a className="btn btn-secondary" href={`#/order?lang=${lang}&service=${key}`}>{t.primaryCta}</a></div></article>)}</div></>;
+    }
+
+    function AboutPage({ t }) {
+      return <><p className="section-title">{t.aboutTitle}</p><h2>{t.aboutHead}</h2><div className="grid-2 section">{t.aboutCards.map(([title,text],i)=><article className="panel" key={i}><h3>{title}</h3><p>{text}</p></article>)}</div><section className="section"><p className="section-title">{t.stack}</p><div className="panel"><div className="tech-list">{technologies.map(tech => <span className="tech" key={tech}>{tech}</span>)}</div></div></section></>;
+    }
+
+    function LeadForm({ lang, t, initialService='' }) {
       const [form, setForm] = React.useState({ name:'', contact:'', service: initialService, budget:'', message:'', company:'', website:'' });
       const [loading, setLoading] = React.useState(false);
       const [status, setStatus] = React.useState({ type:'', text:'' });
       React.useEffect(() => { setForm(prev => ({ ...prev, service: initialService || prev.service })); }, [initialService]);
       const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-      async function onSubmit(e){
-        e.preventDefault();
-        setStatus({ type:'', text:'' });
-        if (form.website.trim()) { setStatus({ type:'err', text:'Отправка отклонена.' }); return; }
-        if (!form.contact.trim() || !form.message.trim()) { setStatus({ type:'err', text:'Заполни хотя бы контакт и описание задачи.' }); return; }
-        setLoading(true);
-        try {
-          await fetch(GOOGLE_SCRIPT_WEB_APP_URL, {
-            method:'POST',
-            mode:'no-cors',
-            headers:{ 'Content-Type':'text/plain;charset=utf-8' },
-            body: JSON.stringify({
-              name: form.name.trim(),
-              contact: form.contact.trim(),
-              company: form.company.trim(),
-              service: getServiceTitle(form.service),
-              budget: form.budget.trim(),
-              message: form.message.trim(),
-              source: window.location.href,
-              origin: window.location.origin,
-              sent_at: new Date().toISOString(),
-              hp_field: form.website.trim()
-            })
-          });
-          setStatus({ type:'ok', text:'Заявка отправлена. Проверь через пару секунд, появилась ли новая строка в Google Sheets.' });
-          setForm({ name:'', contact:'', service: initialService, budget:'', message:'', company:'', website:'' });
-        } catch (err) {
-          setStatus({ type:'err', text:'Не удалось отправить заявку. Проверь публикацию Google Apps Script.' });
-        } finally { setLoading(false); }
-      }
-      return <form className="form" onSubmit={onSubmit}>
-        <div className="field"><label htmlFor="service">Услуга</label><select className="select" id="service" name="service" value={form.service} onChange={onChange}><option value="">Выбери услугу</option>{services.map(item => <option value={item.key} key={item.key}>{item.title}</option>)}</select></div>
-        <div className="field"><label htmlFor="name">Имя</label><input className="input" id="name" name="name" value={form.name} onChange={onChange} placeholder="Как к тебе обращаться" /></div>
-        <div className="field"><label htmlFor="company">Компания</label><input className="input" id="company" name="company" value={form.company} onChange={onChange} placeholder="Необязательно" /></div>
-        <div className="field"><label htmlFor="contact">Контакт</label><input className="input" id="contact" name="contact" value={form.contact} onChange={onChange} placeholder="Telegram, email или телефон" required /></div>
-        <div className="field"><label htmlFor="budget">Бюджет / ориентир</label><input className="input" id="budget" name="budget" value={form.budget} onChange={onChange} placeholder="Например: до 3000 ₪ или нужно оценить" /></div>
-        <div className="field"><label htmlFor="message">Описание задачи</label><textarea className="textarea" id="message" name="message" value={form.message} onChange={onChange} placeholder="Опиши, что нужно сделать, в какие сроки и что уже есть" required /></div>
-        <div className="field hidden" aria-hidden="true"><label htmlFor="website">Website</label><input tabIndex="-1" autoComplete="off" className="input" id="website" name="website" value={form.website} onChange={onChange} /></div>
-        <div className="hint">Форма отправляет заявку в Google Apps Script Web App, а он записывает её в Google Sheets.</div>
-        {status.text ? <div className={`status ${status.type === 'ok' ? 'ok' : 'err'}`}>{status.text}</div> : null}
-        <div className="actions"><button className="btn btn-primary" type="submit" disabled={loading}>{loading ? 'Отправка...' : 'Отправить заявку'}</button></div>
-      </form>;
+      async function onSubmit(e){ e.preventDefault(); setStatus({ type:'', text:'' }); if(form.website.trim()){ setStatus({ type:'err', text:t.form.errors.denied }); return; } if(!form.contact.trim() || !form.message.trim()){ setStatus({ type:'err', text:t.form.errors.basic }); return; } setLoading(true); try { await fetch(GOOGLE_SCRIPT_WEB_APP_URL,{ method:'POST', mode:'no-cors', headers:{ 'Content-Type':'text/plain;charset=utf-8' }, body: JSON.stringify({ name: form.name.trim(), contact: form.contact.trim(), company: form.company.trim(), service: form.service ? serviceContent[form.service][lang][0] : '', budget: form.budget.trim(), message: form.message.trim(), source: window.location.href, origin: window.location.origin, sent_at: new Date().toISOString(), hp_field: form.website.trim() }) }); setStatus({ type:'ok', text:t.form.ok }); setForm({ name:'', contact:'', service: initialService, budget:'', message:'', company:'', website:'' }); } catch(err){ setStatus({ type:'err', text:t.form.errors.fail }); } finally { setLoading(false); } }
+      return <form className="form" onSubmit={onSubmit}><div className="field"><label htmlFor="service">{t.form.service}</label><select className="select" id="service" name="service" value={form.service} onChange={onChange}><option value="">{t.form.choose}</option>{serviceKeys.map(key => <option value={key} key={key}>{serviceContent[key][lang][0]}</option>)}</select></div><div className="field"><label htmlFor="name">{t.form.name}</label><input className="input" id="name" name="name" value={form.name} onChange={onChange} placeholder={t.form.namePh} /></div><div className="field"><label htmlFor="company">{t.form.company}</label><input className="input" id="company" name="company" value={form.company} onChange={onChange} placeholder={t.form.companyPh} /></div><div className="field"><label htmlFor="contact">{t.form.contact}</label><input className="input" id="contact" name="contact" value={form.contact} onChange={onChange} placeholder={t.form.contactPh} required /></div><div className="field"><label htmlFor="budget">{t.form.budget}</label><input className="input" id="budget" name="budget" value={form.budget} onChange={onChange} placeholder={t.form.budgetPh} /></div><div className="field"><label htmlFor="message">{t.form.message}</label><textarea className="textarea" id="message" name="message" value={form.message} onChange={onChange} placeholder={t.form.messagePh} required /></div><div className="field hidden" aria-hidden="true"><label htmlFor="website">Website</label><input tabIndex="-1" autoComplete="off" className="input" id="website" name="website" value={form.website} onChange={onChange} /></div>{status.text ? <div className={`status ${status.type === 'ok' ? 'ok' : 'err'}`}>{status.text}</div> : null}<div className="actions"><button className="btn btn-primary" type="submit" disabled={loading}>{loading ? t.form.sending : t.form.send}</button></div></form>;
     }
-    function OrderPage(){ const initialService = getServiceFromHash(); return <><p className="section-title">Заказать услугу</p><h2>Оставить заявку на разработку</h2><p className="muted">Выбери услугу, кратко опиши задачу и оставь контакт. Так мне будет проще быстрее понять объём работы и ответить по делу.</p><div className="grid-2 section"><article className="panel"><h3>Что можно заказать</h3><ul>{services.map(item => <li key={item.key}>{item.title}</li>)}</ul><div className="panel-cta"><span className="hint">Можно выбрать одну услугу или просто описать задачу своими словами.</span></div></article><article className="panel"><h3>Форма заявки</h3><LeadForm initialService={initialService} /></article></div></>; }
-    function ContactPage(){ return <><p className="section-title">Контакты</p><h2>Связаться со мной</h2><p className="muted">Можно написать по проекту, поддержке существующей системы, интеграции, автоматизации или оценке задачи.</p><div className="grid-2 section"><article className="panel"><div className="contact-list"><div className="contact-item"><strong>GitHub</strong><a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">github.com/maxfullstackcom</a></div><div className="contact-item"><strong>Формат работы</strong><span>Разработка, сопровождение, доработка и техническая поддержка проектов</span></div><div className="contact-item"><strong>Заказ услуги</strong><span>Для структурированной заявки используй отдельную страницу заказа.</span></div></div><div className="actions"><a className="btn btn-primary" href="#/order">Перейти к заказу услуги</a></div></article><article className="panel"><h3>Быстрый запрос</h3><LeadForm /></article></div></>; }
-    function Footer(){ return <footer className="footer"><span>© 2026. Сделано с вниманием к деталям.</span><a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">maxfullstackcom</a></footer>; }
-    function App(){ const [current, setCurrent] = React.useState(getPageFromHash()); React.useEffect(() => { const onHashChange = () => setCurrent(getPageFromHash()); window.addEventListener('hashchange', onHashChange); if (!window.location.hash) window.location.hash = '#/home'; return () => window.removeEventListener('hashchange', onHashChange); }, []); let pageContent; if (current === 'services') pageContent = <ServicesPage />; else if (current === 'about') pageContent = <AboutPage />; else if (current === 'contact') pageContent = <ContactPage />; else if (current === 'order') pageContent = <OrderPage />; else pageContent = <HomePage />; return <div className="page"><main className="shell"><Nav current={current} /><section className="content">{pageContent}</section><Footer /></main></div>; }
+
+    function OrderPage({ lang, t }) { const initialService = getServiceFromHash(); return <><p className="section-title">{t.orderTitle}</p><h2>{t.orderHead}</h2><p className="muted">{t.orderLead}</p><div className="grid-2 section"><article className="panel"><h3>{t.orderListTitle}</h3><ul>{serviceKeys.map(key => <li key={key}>{serviceContent[key][lang][0]}</li>)}</ul><div className="panel-cta"><span>{t.orderListHint}</span></div></article><article className="panel"><h3>{t.formTitle}</h3><LeadForm lang={lang} t={t} initialService={initialService} /></article></div></>;
+    }
+
+    function ContactPage({ lang, t }) { return <><p className="section-title">{t.contactTitle}</p><h2>{t.contactHead}</h2><p className="muted">{t.contactLead}</p><div className="grid-2 section"><article className="panel"><div className="contact-list">{t.contactCards.map(([a,b],i)=><div className="contact-item" key={i}><strong>{a}</strong><span>{b}</span></div>)}</div><div className="actions"><a className="btn btn-primary" href={`#/order?lang=${lang}`}>{t.goOrder}</a></div></article><article className="panel"><h3>{t.quickReq}</h3><LeadForm lang={lang} t={t} /></article></div></>;
+    }
+
+    function Footer({ t }) { return <footer className="footer"><span>© 2026. {t.footer}</span><a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">maxfullstackcom</a></footer>; }
+
+    function App(){
+      const [lang, setLangState] = React.useState(getInitialLang());
+      const [current, setCurrent] = React.useState(getPageFromHash());
+      React.useEffect(() => {
+        const onHashChange = () => { setCurrent(getPageFromHash()); setLangState(getInitialLang()); };
+        window.addEventListener('hashchange', onHashChange);
+        if(!window.location.hash) setHash('home', lang);
+        return () => window.removeEventListener('hashchange', onHashChange);
+      }, []);
+      function setLang(next){ setLangState(next); setHash(current, next, current === 'order' ? getServiceFromHash() : ''); }
+      const t = dictionary[lang];
+      const isRtl = lang === 'he';
+      let pageContent = <HomePage lang={lang} t={t} />;
+      if(current === 'services') pageContent = <ServicesPage lang={lang} t={t} />;
+      else if(current === 'about') pageContent = <AboutPage t={t} />;
+      else if(current === 'contact') pageContent = <ContactPage lang={lang} t={t} />;
+      else if(current === 'order') pageContent = <OrderPage lang={lang} t={t} />;
+      React.useEffect(() => { document.documentElement.lang = lang; document.documentElement.dir = isRtl ? 'rtl' : 'ltr'; }, [lang, isRtl]);
+      return <div className={`page ${isRtl ? 'rtl' : ''}`}><main className="shell"><Nav current={current} lang={lang} setLang={setLang} t={t} /><section className="content">{pageContent}</section><Footer t={t} /></main></div>;
+    }
+
     ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   </script>
 </body>
