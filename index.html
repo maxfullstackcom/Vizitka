@@ -31,7 +31,7 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    const GOOGLE_SCRIPT_WEB_APP_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+    const GOOGLE_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwJJNtcMBAuyc4z-1OLpGsQDQ7fArI9sstqE_GBdBIB1BF-AqbVJpyFpjp0jjbBhG4l/exec';
     const services = [
       { title: 'Веб-разработка', text: 'Создаю и поддерживаю сайты, интернет-магазины, админ-панели и кастомные веб-системы под задачи бизнеса.' },
       { title: 'Интеграции и автоматизация', text: 'Подключаю API, CRM, ERP-подобные процессы, платёжные сервисы, документы и автоматизацию рабочих сценариев.' },
@@ -60,7 +60,6 @@
         setStatus({ type:'', text:'' });
         if (form.website.trim()) { setStatus({ type:'err', text:'Отправка отклонена.' }); return; }
         if (!form.contact.trim() || !form.message.trim()) { setStatus({ type:'err', text:'Заполни хотя бы контакт и сообщение.' }); return; }
-        if (GOOGLE_SCRIPT_WEB_APP_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) { setStatus({ type:'err', text:'Сначала укажи реальный URL Google Apps Script Web App.' }); return; }
         setLoading(true);
         try {
           const response = await fetch(GOOGLE_SCRIPT_WEB_APP_URL, {
