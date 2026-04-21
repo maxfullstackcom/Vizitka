@@ -19,10 +19,10 @@
     h1{margin:0;font-size:clamp(34px,7vw,64px);line-height:1.02;max-width:820px}h2{margin:0 0 14px;font-size:28px}h3{margin:0 0 10px;font-size:20px}.lead{margin:18px 0 0;max-width:820px;font-size:20px;line-height:1.7;color:#cbd5e1}.muted{color:#cbd5e1;line-height:1.8;font-size:18px}
     .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;text-decoration:none;font-weight:700;transition:.18s ease;border:none;cursor:pointer}.btn:hover{transform:translateY(-1px)}.btn-primary{background:#38bdf8;color:#082f49}.btn-secondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#e5e7eb}.btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}
     .section{margin-top:34px}.section-title{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px}.panel p,.panel li,.panel span{margin:0;color:#cbd5e1;line-height:1.7}.panel ul{margin:0;padding-left:18px}
+    .panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px}.panel p,.panel li,.panel span{margin:0;color:#cbd5e1;line-height:1.7}.panel ul{margin:0;padding-left:18px}.panel-cta{margin-top:16px}
     .tech-list{display:flex;flex-wrap:wrap;gap:10px}.tech{padding:10px 14px;border-radius:999px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.16);color:#dbeafe;font-size:14px}
     .contact-list{display:grid;gap:14px}.contact-item{padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.contact-item strong{display:block;margin-bottom:6px;font-size:15px;color:#7dd3fc}
-    .form{display:grid;gap:14px;margin-top:6px}.field{display:grid;gap:8px}.field label{font-size:14px;color:#cbd5e1}.input,.textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#e5e7eb;padding:14px 16px;font:inherit;outline:none}.input:focus,.textarea:focus{border-color:rgba(56,189,248,.45);box-shadow:0 0 0 3px rgba(56,189,248,.12)}.textarea{min-height:140px;resize:vertical}
+    .form{display:grid;gap:14px;margin-top:6px}.field{display:grid;gap:8px}.field label{font-size:14px;color:#cbd5e1}.input,.textarea,.select{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#e5e7eb;padding:14px 16px;font:inherit;outline:none}.input:focus,.textarea:focus,.select:focus{border-color:rgba(56,189,248,.45);box-shadow:0 0 0 3px rgba(56,189,248,.12)}.textarea{min-height:140px;resize:vertical}.select option{color:#111827}
     .hint{font-size:13px;color:#94a3b8;line-height:1.6}.status{padding:14px 16px;border-radius:14px;font-size:14px}.status.ok{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);color:#bbf7d0}.status.err{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);color:#fecaca}.hidden{display:none}
     .footer{margin-top:10px;padding:24px 40px 32px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:#94a3b8;font-size:14px}.footer a{text-decoration:none;color:#7dd3fc}.footer a:hover{text-decoration:underline}
     @media (max-width: 860px){.grid,.grid-2{grid-template-columns:1fr}.content,.footer{padding-left:24px;padding-right:24px}.nav{padding:16px 20px;align-items:flex-start;flex-direction:column}}
@@ -33,33 +33,40 @@
   <script type="text/babel">
     const GOOGLE_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwJJNtcMBAuyc4z-1OLpGsQDQ7fArI9sstqE_GBdBIB1BF-AqbVJpyFpjp0jjbBhG4l/exec';
     const services = [
-      { title: 'Веб-разработка', text: 'Создаю и поддерживаю сайты, интернет-магазины, админ-панели и кастомные веб-системы под задачи бизнеса.' },
-      { title: 'Интеграции и автоматизация', text: 'Подключаю API, CRM, ERP-подобные процессы, платёжные сервисы, документы и автоматизацию рабочих сценариев.' },
-      { title: 'Поддержка и инфраструктура', text: 'Работаю с backend, frontend, серверами, базами данных, деплоем, сопровождением проектов и технической диагностикой.' }
+      { key:'website', title: 'Веб-разработка', text: 'Создаю и поддерживаю сайты, интернет-магазины, админ-панели и кастомные веб-системы под задачи бизнеса.' },
+      { key:'integration', title: 'Интеграции и автоматизация', text: 'Подключаю API, CRM, ERP-подобные процессы, платёжные сервисы, документы и автоматизацию рабочих сценариев.' },
+      { key:'support', title: 'Поддержка и инфраструктура', text: 'Работаю с backend, frontend, серверами, базами данных, деплоем, сопровождением проектов и технической диагностикой.' },
+      { key:'store', title: 'Интернет-магазин', text: 'Разработка или доработка магазина, каталога, корзины, оплаты, доставки и административной части.' },
+      { key:'crm', title: 'CRM / внутренняя система', text: 'Сборка рабочих кабинетов, внутренних панелей, учёта данных и бизнес-процессов.' },
+      { key:'audit', title: 'Технический аудит', text: 'Разбор текущего проекта, проблем, узких мест, архитектуры и вариантов развития.' }
     ];
     const technologies = ['PHP','Laravel','WordPress','WooCommerce','JavaScript','Vue','React','MySQL','Directus','Linux','AWS','API'];
     const pages = [
       { key: 'home', label: 'Главная' },
       { key: 'services', label: 'Услуги' },
+      { key: 'order', label: 'Заказать услугу' },
       { key: 'about', label: 'Обо мне' },
       { key: 'contact', label: 'Контакты' }
     ];
-    function getPageFromHash(){ const key = window.location.hash.replace('#/','') || 'home'; return pages.some(p => p.key === key) ? key : 'home'; }
+    function getPageFromHash(){ const key = window.location.hash.replace('#/','').split('?')[0] || 'home'; return pages.some(p => p.key === key) ? key : 'home'; }
+    function getServiceTitle(serviceKey){ const service = services.find(s => s.key === serviceKey); return service ? service.title : ''; }
+    function getServiceFromHash(){ const raw = window.location.hash.split('?')[1] || ''; const params = new URLSearchParams(raw); const service = params.get('service') || ''; return services.some(s => s.key === service) ? service : ''; }
     function Badge(){ return <div className="badge">● Full-stack Developer</div>; }
     function Nav({ current }){ return <nav className="nav"><div className="brand">Full-stack Developer</div><div className="nav-links">{pages.map(page => <a key={page.key} href={`#/${page.key}`} className={`nav-link ${current === page.key ? 'active' : ''}`}>{page.label}</a>)}</div></nav>; }
-    function HomePage(){ return <><Badge /><h1>Разработка, интеграции и автоматизация под задачи бизнеса</h1><p className="lead">Создаю и поддерживаю сайты, интернет-магазины, админ-панели, CRM/ERP-подобные системы, API-интеграции и автоматизацию бизнес-процессов. Работаю с кастомной разработкой под реальные задачи: от frontend и backend до серверов, баз данных и сопровождения проектов.</p><div className="actions"><a className="btn btn-primary" href="#/contact">Связаться</a><a className="btn btn-secondary" href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">GitHub</a></div><section className="section"><p className="section-title">Основные направления</p><div className="grid">{services.map(item => <article className="panel" key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></section></>; }
-    function ServicesPage(){ return <><p className="section-title">Услуги</p><h2>Чем я могу помочь</h2><p className="muted">Беру в работу как новые проекты, так и поддержку существующих систем. Делаю не только интерфейсы, но и всю техническую часть вокруг продукта.</p><div className="grid section"><article className="panel"><h3>Сайты и магазины</h3><p>Корпоративные сайты, лендинги, интернет-магазины, каталоги, кастомные личные кабинеты и админ-панели.</p></article><article className="panel"><h3>Бизнес-системы</h3><p>CRM/ERP-подобные решения, внутренние панели управления, автоматизация рутины и рабочих процессов.</p></article><article className="panel"><h3>Интеграции</h3><p>Платежи, документы, API сторонних сервисов, обмен данными между системами и кастомные коннекторы.</p></article><article className="panel"><h3>Поддержка</h3><p>Исправление багов, улучшение производительности, техническая диагностика, сопровождение и развитие проекта.</p></article><article className="panel"><h3>Серверная часть</h3><p>Backend-логика, базы данных, доступы, деплой, хостинг, Linux-среда и поддержка инфраструктуры.</p></article><article className="panel"><h3>Кастомная разработка</h3><p>Когда готового решения недостаточно — проектирую и собираю систему под конкретные задачи бизнеса.</p></article></div></>; }
+    function HomePage(){ return <><Badge /><h1>Разработка, интеграции и автоматизация под задачи бизнеса</h1><p className="lead">Создаю и поддерживаю сайты, интернет-магазины, админ-панели, CRM/ERP-подобные системы, API-интеграции и автоматизацию бизнес-процессов. Работаю с кастомной разработкой под реальные задачи: от frontend и backend до серверов, баз данных и сопровождения проектов.</p><div className="actions"><a className="btn btn-primary" href="#/order">Заказать услугу</a><a className="btn btn-secondary" href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">GitHub</a></div><section className="section"><p className="section-title">Основные направления</p><div className="grid">{services.slice(0,3).map(item => <article className="panel" key={item.key}><h3>{item.title}</h3><p>{item.text}</p><div className="panel-cta"><a className="btn btn-secondary" href={`#/order?service=${item.key}`}>Заказать</a></div></article>)}</div></section></>; }
+    function ServicesPage(){ return <><p className="section-title">Услуги</p><h2>Чем я могу помочь</h2><p className="muted">Беру в работу как новые проекты, так и поддержку существующих систем. Делаю не только интерфейсы, но и всю техническую часть вокруг продукта.</p><div className="grid section">{services.map(item => <article className="panel" key={item.key}><h3>{item.title}</h3><p>{item.text}</p><div className="panel-cta"><a className="btn btn-secondary" href={`#/order?service=${item.key}`}>Заказать услугу</a></div></article>)}</div></>; }
     function AboutPage(){ return <><p className="section-title">Обо мне</p><h2>Разработка под реальные задачи</h2><div className="grid-2 section"><article className="panel"><h3>Подход</h3><p>Мне ближе практичная разработка: понять задачу бизнеса, убрать лишнее, собрать устойчивое решение и довести его до рабочего состояния.</p></article><article className="panel"><h3>Что важно</h3><p>Надёжность, понятная логика, поддерживаемый код, аккуратная интеграция с текущими системами и возможность спокойно развивать проект дальше.</p></article></div><section className="section"><p className="section-title">Стек и инструменты</p><div className="panel"><div className="tech-list">{technologies.map(tech => <span className="tech" key={tech}>{tech}</span>)}</div></div></section></>; }
-    function ContactForm(){
-      const [form, setForm] = React.useState({ name:'', contact:'', message:'', company:'', website:'' });
+    function LeadForm({ initialService = '' }){
+      const [form, setForm] = React.useState({ name:'', contact:'', service: initialService, budget:'', message:'', company:'', website:'' });
       const [loading, setLoading] = React.useState(false);
       const [status, setStatus] = React.useState({ type:'', text:'' });
+      React.useEffect(() => { setForm(prev => ({ ...prev, service: initialService || prev.service })); }, [initialService]);
       const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
       async function onSubmit(e){
         e.preventDefault();
         setStatus({ type:'', text:'' });
         if (form.website.trim()) { setStatus({ type:'err', text:'Отправка отклонена.' }); return; }
-        if (!form.contact.trim() || !form.message.trim()) { setStatus({ type:'err', text:'Заполни хотя бы контакт и сообщение.' }); return; }
+        if (!form.contact.trim() || !form.message.trim()) { setStatus({ type:'err', text:'Заполни хотя бы контакт и описание задачи.' }); return; }
         setLoading(true);
         try {
           await fetch(GOOGLE_SCRIPT_WEB_APP_URL, {
@@ -70,6 +77,8 @@
               name: form.name.trim(),
               contact: form.contact.trim(),
               company: form.company.trim(),
+              service: getServiceTitle(form.service),
+              budget: form.budget.trim(),
               message: form.message.trim(),
               source: window.location.href,
               origin: window.location.origin,
@@ -77,26 +86,29 @@
               hp_field: form.website.trim()
             })
           });
-          setStatus({ type:'ok', text:'Сообщение отправлено. Если хочешь, проверь через пару секунд, появилась ли строка в Google Sheets.' });
-          setForm({ name:'', contact:'', message:'', company:'', website:'' });
+          setStatus({ type:'ok', text:'Заявка отправлена. Проверь через пару секунд, появилась ли новая строка в Google Sheets.' });
+          setForm({ name:'', contact:'', service: initialService, budget:'', message:'', company:'', website:'' });
         } catch (err) {
-          setStatus({ type:'err', text:'Не удалось отправить сообщение. Проверь публикацию Google Apps Script и доступ Anyone.' });
+          setStatus({ type:'err', text:'Не удалось отправить заявку. Проверь публикацию Google Apps Script.' });
         } finally { setLoading(false); }
       }
       return <form className="form" onSubmit={onSubmit}>
+        <div className="field"><label htmlFor="service">Услуга</label><select className="select" id="service" name="service" value={form.service} onChange={onChange}><option value="">Выбери услугу</option>{services.map(item => <option value={item.key} key={item.key}>{item.title}</option>)}</select></div>
         <div className="field"><label htmlFor="name">Имя</label><input className="input" id="name" name="name" value={form.name} onChange={onChange} placeholder="Как к тебе обращаться" /></div>
         <div className="field"><label htmlFor="company">Компания</label><input className="input" id="company" name="company" value={form.company} onChange={onChange} placeholder="Необязательно" /></div>
         <div className="field"><label htmlFor="contact">Контакт</label><input className="input" id="contact" name="contact" value={form.contact} onChange={onChange} placeholder="Telegram, email или телефон" required /></div>
-        <div className="field"><label htmlFor="message">Сообщение</label><textarea className="textarea" id="message" name="message" value={form.message} onChange={onChange} placeholder="Кратко опиши задачу" required /></div>
+        <div className="field"><label htmlFor="budget">Бюджет / ориентир</label><input className="input" id="budget" name="budget" value={form.budget} onChange={onChange} placeholder="Например: до 3000 ₪ или нужно оценить" /></div>
+        <div className="field"><label htmlFor="message">Описание задачи</label><textarea className="textarea" id="message" name="message" value={form.message} onChange={onChange} placeholder="Опиши, что нужно сделать, в какие сроки и что уже есть" required /></div>
         <div className="field hidden" aria-hidden="true"><label htmlFor="website">Website</label><input tabIndex="-1" autoComplete="off" className="input" id="website" name="website" value={form.website} onChange={onChange} /></div>
-        <div className="hint">Форма отправляет данные в Google Apps Script Web App, а он записывает заявку в Google Sheets.</div>
+        <div className="hint">Форма отправляет заявку в Google Apps Script Web App, а он записывает её в Google Sheets.</div>
         {status.text ? <div className={`status ${status.type === 'ok' ? 'ok' : 'err'}`}>{status.text}</div> : null}
-        <div className="actions"><button className="btn btn-primary" type="submit" disabled={loading}>{loading ? 'Отправка...' : 'Отправить'}</button></div>
+        <div className="actions"><button className="btn btn-primary" type="submit" disabled={loading}>{loading ? 'Отправка...' : 'Отправить заявку'}</button></div>
       </form>;
     }
-    function ContactPage(){ return <><p className="section-title">Контакты</p><h2>Связаться со мной</h2><p className="muted">Можно написать по проекту, поддержке существующей системы, интеграции, автоматизации или оценке задачи.</p><div className="grid-2 section"><article className="panel"><div className="contact-list"><div className="contact-item"><strong>GitHub</strong><a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">github.com/maxfullstackcom</a></div><div className="contact-item"><strong>Формат работы</strong><span>Разработка, сопровождение, доработка и техническая поддержка проектов</span></div><div className="contact-item"><strong>Google Sheets</strong><span>Заявки будут попадать в таблицу через Google Apps Script.</span></div></div></article><article className="panel"><h3>Форма обращения</h3><ContactForm /></article></div></>; }
+    function OrderPage(){ const initialService = getServiceFromHash(); return <><p className="section-title">Заказать услугу</p><h2>Оставить заявку на разработку</h2><p className="muted">Выбери услугу, кратко опиши задачу и оставь контакт. Так мне будет проще быстрее понять объём работы и ответить по делу.</p><div className="grid-2 section"><article className="panel"><h3>Что можно заказать</h3><ul>{services.map(item => <li key={item.key}>{item.title}</li>)}</ul><div className="panel-cta"><span className="hint">Можно выбрать одну услугу или просто описать задачу своими словами.</span></div></article><article className="panel"><h3>Форма заявки</h3><LeadForm initialService={initialService} /></article></div></>; }
+    function ContactPage(){ return <><p className="section-title">Контакты</p><h2>Связаться со мной</h2><p className="muted">Можно написать по проекту, поддержке существующей системы, интеграции, автоматизации или оценке задачи.</p><div className="grid-2 section"><article className="panel"><div className="contact-list"><div className="contact-item"><strong>GitHub</strong><a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">github.com/maxfullstackcom</a></div><div className="contact-item"><strong>Формат работы</strong><span>Разработка, сопровождение, доработка и техническая поддержка проектов</span></div><div className="contact-item"><strong>Заказ услуги</strong><span>Для структурированной заявки используй отдельную страницу заказа.</span></div></div><div className="actions"><a className="btn btn-primary" href="#/order">Перейти к заказу услуги</a></div></article><article className="panel"><h3>Быстрый запрос</h3><LeadForm /></article></div></>; }
     function Footer(){ return <footer className="footer"><span>© 2026. Сделано с вниманием к деталям.</span><a href="https://github.com/maxfullstackcom" target="_blank" rel="noreferrer">maxfullstackcom</a></footer>; }
-    function App(){ const [current, setCurrent] = React.useState(getPageFromHash()); React.useEffect(() => { const onHashChange = () => setCurrent(getPageFromHash()); window.addEventListener('hashchange', onHashChange); if (!window.location.hash) window.location.hash = '#/home'; return () => window.removeEventListener('hashchange', onHashChange); }, []); let pageContent; if (current === 'services') pageContent = <ServicesPage />; else if (current === 'about') pageContent = <AboutPage />; else if (current === 'contact') pageContent = <ContactPage />; else pageContent = <HomePage />; return <div className="page"><main className="shell"><Nav current={current} /><section className="content">{pageContent}</section><Footer /></main></div>; }
+    function App(){ const [current, setCurrent] = React.useState(getPageFromHash()); React.useEffect(() => { const onHashChange = () => setCurrent(getPageFromHash()); window.addEventListener('hashchange', onHashChange); if (!window.location.hash) window.location.hash = '#/home'; return () => window.removeEventListener('hashchange', onHashChange); }, []); let pageContent; if (current === 'services') pageContent = <ServicesPage />; else if (current === 'about') pageContent = <AboutPage />; else if (current === 'contact') pageContent = <ContactPage />; else if (current === 'order') pageContent = <OrderPage />; else pageContent = <HomePage />; return <div className="page"><main className="shell"><Nav current={current} /><section className="content">{pageContent}</section><Footer /></main></div>; }
     ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   </script>
 </body>
