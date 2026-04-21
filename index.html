@@ -3,8 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vizitka</title>
-  <meta name="description" content="Full-stack developer: websites, landing pages, integrations, automation and support." />
+  <title>Full-stack Developer | Websites, Landing Pages, Integrations</title>
+  <meta name="description" content="Full-stack developer in Israel: websites, landing pages, integrations, automation, audits, and technical support for businesses." />
+  <meta name="keywords" content="full-stack developer, landing page, website development, integrations, automation, technical audit, Israel, Tel Aviv, Hebrew, Russian, English" />
+  <meta name="author" content="Full-stack Developer" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://v.maxd.pro/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="v.maxd.pro" />
+  <meta property="og:title" content="Full-stack Developer | Websites, Landing Pages, Integrations" />
+  <meta property="og:description" content="Websites, landing pages, integrations, automation, and technical support for businesses." />
+  <meta property="og:url" content="https://v.maxd.pro/" />
+  <meta property="og:image" content="https://v.maxd.pro/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Full-stack Developer | Websites, Landing Pages, Integrations" />
+  <meta name="twitter:description" content="Websites, landing pages, integrations, automation, and technical support for businesses." />
+  <meta name="twitter:image" content="https://v.maxd.pro/og-image.jpg" />
+  <meta name="theme-color" content="#0f172a" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Full-stack Developer",
+      "url": "https://v.maxd.pro/",
+      "description": "Full-stack development for websites, landing pages, integrations, automation, audits, and support.",
+      "areaServed": "IL",
+      "knowsLanguage": ["en", "ru", "he"],
+      "serviceType": [
+        "Website Development",
+        "Landing Page Development",
+        "Integrations and Automation",
+        "Technical Audit",
+        "Technical Support"
+      ]
+    }
+  </script>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -96,6 +129,48 @@
     function getServiceFromHash(){ const raw = window.location.hash.split('?')[1] || ''; const params = new URLSearchParams(raw); const service = params.get('service') || ''; return serviceKeys.includes(service) ? service : ''; }
     function setHash(page, lang, service=''){ const params = new URLSearchParams(); params.set('lang', lang); if(service) params.set('service', service); window.location.hash = `#/${page}${params.toString() ? '?' + params.toString() : ''}`; }
 
+    function updateSeo(page, lang, t) {
+      const seoMap = {
+        home: {
+          en: ['Full-stack Developer | Websites, Landing Pages, Integrations', 'Websites, landing pages, integrations, automation, and technical support for businesses.'],
+          ru: ['Full-stack разработчик | Сайты, лендинги, интеграции', 'Разработка сайтов и лендингов, интеграции, автоматизация и техническая поддержка для бизнеса.'],
+          he: ['מפתח Full-stack | אתרים, דפי נחיתה, אינטגרציות', 'פיתוח אתרים ודפי נחיתה, אינטגרציות, אוטומציה ותמיכה טכנית לעסקים.']
+        },
+        services: {
+          en: ['Services | Websites, Landing Pages, Automation', 'Website development, landing pages, integrations, automation, technical audits, and support.'],
+          ru: ['Услуги | Сайты, лендинги, автоматизация', 'Разработка сайтов, лендингов, интеграции, автоматизация, технический аудит и поддержка.'],
+          he: ['שירותים | אתרים, דפי נחיתה, אוטומציה', 'פיתוח אתרים ודפי נחיתה, אינטגרציות, אוטומציה, ביקורת טכנית ותמיכה.']
+        },
+        order: {
+          en: ['Order Service | Landing Pages, Websites, Integrations', 'Order a landing page, website, integration, automation work, audit, or technical support.'],
+          ru: ['Заказать услугу | Лендинги, сайты, интеграции', 'Заказать лендинг, сайт, интеграцию, автоматизацию, аудит или техническую поддержку.'],
+          he: ['הזמנת שירות | דפי נחיתה, אתרים, אינטגרציות', 'הזמנת דף נחיתה, אתר, אינטגרציה, אוטומציה, ביקורת או תמיכה טכנית.']
+        },
+        about: {
+          en: ['About | Full-stack Developer', 'Practical full-stack development for real business goals and maintainable systems.'],
+          ru: ['Обо мне | Full-stack разработчик', 'Практичная full-stack разработка под реальные задачи бизнеса и поддерживаемые системы.'],
+          he: ['עליי | מפתח Full-stack', 'פיתוח full-stack פרקטי לצרכים אמיתיים של העסק ולמערכות שנוח לתחזק.']
+        },
+        contact: {
+          en: ['Contact | Full-stack Developer', 'Get in touch about a website, landing page, upgrade, integration, audit, or technical support.'],
+          ru: ['Контакты | Full-stack разработчик', 'Связь по сайту, лендингу, доработке, интеграции, аудиту или технической поддержке.'],
+          he: ['יצירת קשר | מפתח Full-stack', 'יצירת קשר לגבי אתר, דף נחיתה, שדרוג, אינטגרציה, ביקורת או תמיכה טכנית.']
+        }
+      };
+      const [title, description] = seoMap[page][lang];
+      document.title = title;
+      const desc = document.querySelector('meta[name="description"]');
+      if (desc) desc.setAttribute('content', description);
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', title);
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', description);
+      const twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) twTitle.setAttribute('content', title);
+      const twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) twDesc.setAttribute('content', description);
+    }
+
     function Nav({ current, lang, setLang, t }) {
       return <nav className="nav"><div className="brand">{t.brand}</div><div className="nav-right"><div className="nav-links">{pageKeys.map(k => <a key={k} href={`#/${k}?lang=${lang}`} className={`nav-link ${current===k?'active':''}`}>{t.nav[k]}</a>)}</div><div className="lang-switch" aria-label={t.langLabel}><button className={`lang-btn ${lang==='en'?'active':''}`} onClick={() => setLang('en')}>EN</button><button className={`lang-btn ${lang==='ru'?'active':''}`} onClick={() => setLang('ru')}>RU</button><button className={`lang-btn ${lang==='he'?'active':''}`} onClick={() => setLang('he')}>HE</button></div></div></nav>;
     }
@@ -151,7 +226,7 @@
       else if(current === 'about') pageContent = <AboutPage t={t} />;
       else if(current === 'contact') pageContent = <ContactPage lang={lang} t={t} />;
       else if(current === 'order') pageContent = <OrderPage lang={lang} t={t} />;
-      React.useEffect(() => { document.documentElement.lang = lang; document.documentElement.dir = isRtl ? 'rtl' : 'ltr'; }, [lang, isRtl]);
+      React.useEffect(() => { document.documentElement.lang = lang; document.documentElement.dir = isRtl ? 'rtl' : 'ltr'; updateSeo(current, lang, t); }, [lang, isRtl, current]);
       return <div className={`page ${isRtl ? 'rtl' : ''}`}><main className="shell"><Nav current={current} lang={lang} setLang={setLang} t={t} /><section className="content">{pageContent}</section><Footer t={t} /></main></div>;
     }
 
