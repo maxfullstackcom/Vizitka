@@ -1,340 +1,68 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>hhhh — Full-Stack Developer | Laravel, WordPress, Vue, React</title>
-  <meta name="description" content="Full-stack developer in Israel. I build and maintain web systems, integrations, e-commerce solutions, admin panels, and business automation using PHP, Laravel, WordPress, WooCommerce, Vue, React, Directus, MySQL, AWS, and Linux.">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="author" content="Maxim Markovich">
-  <link rel="canonical" href="https://v.maxd.pro/">
-  <meta name="theme-color" content="#0f172a">
-  <meta property="og:title" content="Maxim Markovich — Full-Stack Developer">
-  <meta property="og:description" content="Web systems, integrations, e-commerce, admin panels, and business automation.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://v.maxd.pro/">
-  <meta property="og:image" content="https://v.maxd.pro/og-image.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maxim Markovich — Full-Stack Developer">
-  <meta name="twitter:description" content="Web systems, integrations, e-commerce, admin panels, and business automation.">
-  <meta name="twitter:image" content="https://v.maxd.pro/og-image.svg">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <style>
-    :root {
-      --bg: #08111f;
-      --bg-soft: #0f172a;
-      --card: rgba(255,255,255,0.06);
-      --text: #e5eefb;
-      --muted: #9fb0ca;
-      --line: rgba(255,255,255,0.12);
-      --accent: #7dd3fc;
-      --accent-2: #86efac;
-      --max: 1120px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(125,211,252,0.14), transparent 35%),
-        radial-gradient(circle at top right, rgba(134,239,172,0.12), transparent 30%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
-    header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
-      background: rgba(8,17,31,0.72);
-      border-bottom: 1px solid var(--line);
-      z-index: 10;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 0;
-    }
-    .brand { font-weight: 700; letter-spacing: 0.02em; }
-    .menu { display: flex; gap: 18px; flex-wrap: wrap; }
-    .menu a { color: var(--muted); }
-    .menu a:hover { color: var(--text); text-decoration: none; }
-    .hero {
-      padding: 88px 0 56px;
-      display: grid;
-      gap: 28px;
-      grid-template-columns: 1.3fr 0.9fr;
-      align-items: center;
-    }
-    .eyebrow {
-      display: inline-flex;
-      padding: 6px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--accent);
-      background: rgba(255,255,255,0.03);
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-    h1, h2, h3 { line-height: 1.15; margin: 0 0 14px; }
-    h1 { font-size: clamp(36px, 7vw, 64px); letter-spacing: -0.03em; }
-    h2 { font-size: clamp(28px, 4vw, 38px); }
-    h3 { font-size: 20px; }
-    .lead {
-      font-size: clamp(18px, 2.3vw, 22px);
-      color: var(--muted);
-      max-width: 760px;
-    }
-    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 18px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      font-weight: 600;
-      transition: .2s ease;
-    }
-    .btn.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #082032;
-      border-color: transparent;
-    }
-    .btn:hover { transform: translateY(-1px); text-decoration: none; }
-    .hero-card, .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
-    }
-    .hero-card ul, .checklist { margin: 0; padding-left: 18px; color: var(--muted); }
-    section { padding: 36px 0; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-    .two-col {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-    }
-    .stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-    .tag {
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      background: rgba(255,255,255,0.03);
-      font-size: 14px;
-    }
-    .muted { color: var(--muted); }
-    .footer {
-      padding: 36px 0 60px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-      margin-top: 28px;
-    }
-    .small { font-size: 14px; }
-    @media (max-width: 920px) {
-      .hero, .grid, .two-col { grid-template-columns: 1fr; }
-      .nav { align-items: flex-start; flex-direction: column; }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full-stack Developer | Websites, Landing Pages, Integrations</title>
+  <meta name="description" content="Full-stack developer in Israel: websites, landing pages, integrations, automation, audits, and technical support for businesses." />
+  <meta name="keywords" content="full-stack developer, landing page, website development, integrations, automation, technical audit, Israel, Tel Aviv, Hebrew, Russian, English" />
+  <meta name="author" content="Full-stack Developer" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://v.maxd.pro/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="v.maxd.pro" />
+  <meta property="og:title" content="Full-stack Developer | Websites, Landing Pages, Integrations" />
+  <meta property="og:description" content="Websites, landing pages, integrations, automation, and technical support for businesses." />
+  <meta property="og:url" content="https://v.maxd.pro/" />
+  <meta property="og:image" content="https://v.maxd.pro/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Full-stack Developer | Websites, Landing Pages, Integrations" />
+  <meta name="twitter:description" content="Websites, landing pages, integrations, automation, and technical support for businesses." />
+  <meta name="twitter:image" content="https://v.maxd.pro/og-image.svg" />
+  <meta name="theme-color" content="#0f172a" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Maxim Markovich",
-    "jobTitle": "Full-Stack Developer",
-    "url": "https://v.maxd.pro/",
-    "sameAs": ["https://github.com/maxfullstackcom"],
-    "knowsAbout": [
-      "PHP",
-      "Laravel",
-      "WordPress",
-      "WooCommerce",
-      "Vue.js",
-      "React",
-      "Directus",
-      "MySQL",
-      "AWS",
-      "Linux",
-      "API Integrations",
-      "Business Automation"
-    ],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Independent Developer"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IL"
-    }
-  }
+    {"@context":"https://schema.org","@type":"ProfessionalService","name":"Full-stack Developer","url":"https://v.maxd.pro/","description":"Full-stack development for websites, landing pages, integrations, automation, audits, and support.","areaServed":"IL","knowsLanguage":["en","ru","he"],"serviceType":["Website Development","Landing Page Development","Integrations and Automation","Technical Audit","Technical Support"]}
   </script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:Inter,Arial,sans-serif;color:#e5e7eb;background:radial-gradient(circle at top right, rgba(56,189,248,.18), transparent 28%),radial-gradient(circle at bottom left, rgba(99,102,241,.16), transparent 30%),linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh}a{color:inherit}.page{max-width:1120px;margin:0 auto;padding:28px}.shell{background:rgba(15,23,42,.78);border:1px solid rgba(255,255,255,.1);border-radius:28px;box-shadow:0 24px 80px rgba(0,0,0,.35);backdrop-filter:blur(10px);overflow:hidden}.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02)}.brand{font-weight:800;font-size:18px;letter-spacing:.02em}.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.nav-links{display:flex;gap:10px;flex-wrap:wrap}.nav-link{text-decoration:none;padding:10px 14px;border-radius:12px;color:#cbd5e1;border:1px solid transparent;transition:.18s ease}.nav-link:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)}.nav-link.active{background:rgba(56,189,248,.1);color:#7dd3fc;border-color:rgba(56,189,248,.22)}.lang-switch{display:flex;gap:6px;flex-wrap:wrap}.lang-btn,.fullscreen-btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#cbd5e1;cursor:pointer}.lang-btn.active,.fullscreen-btn.active{background:rgba(56,189,248,.12);color:#7dd3fc;border-color:rgba(56,189,248,.24)}.content{padding:42px 40px 28px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid rgba(56,189,248,.3);background:rgba(56,189,248,.08);color:#7dd3fc;font-size:14px;margin-bottom:18px}h1{margin:0;font-size:clamp(34px,7vw,64px);line-height:1.02;max-width:860px}h2{margin:0 0 14px;font-size:28px}h3{margin:0 0 10px;font-size:20px}.lead{margin:18px 0 0;max-width:860px;font-size:20px;line-height:1.7;color:#cbd5e1}.muted{color:#cbd5e1;line-height:1.8;font-size:18px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;text-decoration:none;font-weight:700;transition:.18s ease;border:none;cursor:pointer}.btn:hover{transform:translateY(-1px)}.btn-primary{background:#38bdf8;color:#082f49}.btn-secondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#e5e7eb}.btn[disabled]{opacity:.6;cursor:not-allowed;transform:none}.section{margin-top:34px}.section-title{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}.stat{padding:18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.stat strong{display:block;font-size:24px;margin-bottom:6px}.panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px}.panel p,.panel li,.panel span{margin:0;color:#cbd5e1;line-height:1.7}.panel ul{margin:0;padding-left:18px}.panel-cta{margin-top:16px}.panel-price{margin-top:12px;padding:12px 14px;border-radius:14px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.16);font-weight:700;color:#dbeafe}.panel-note{margin-top:10px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.tech-list{display:flex;flex-wrap:wrap;gap:10px}.tech{padding:10px 14px;border-radius:999px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.16);color:#dbeafe;font-size:14px}.contact-list{display:grid;gap:14px}.contact-item{padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.contact-item strong{display:block;margin-bottom:6px;font-size:15px;color:#7dd3fc}.form{display:grid;gap:14px;margin-top:6px}.field{display:grid;gap:8px}.field label{font-size:14px;color:#cbd5e1}.input,.textarea,.select{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#e5e7eb;padding:14px 16px;font:inherit;outline:none}.input:focus,.textarea:focus,.select:focus{border-color:rgba(56,189,248,.45);box-shadow:0 0 0 3px rgba(56,189,248,.12)}.textarea{min-height:140px;resize:vertical}.select option{color:#111827}.status{padding:14px 16px;border-radius:14px;font-size:14px}.status.ok{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);color:#bbf7d0}.status.err{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);color:#fecaca}.hidden{display:none}.footer{margin-top:10px;padding:24px 40px 32px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:#94a3b8;font-size:14px}.rtl{text-align:right;direction:rtl}.rtl .nav{direction:rtl}.rtl .nav-right{direction:rtl}.rtl .nav-links{direction:rtl}.rtl .actions{direction:rtl}.rtl .field label,.rtl input,.rtl textarea,.rtl select{text-align:right}.rtl .panel ul{padding-right:18px;padding-left:0}.rtl .contact-list,.rtl .form{direction:rtl}@media (max-width:860px){.grid,.grid-2,.stats{grid-template-columns:1fr}.content,.footer{padding-left:24px;padding-right:24px}.nav{padding:16px 20px;align-items:flex-start;flex-direction:column}.nav-right{width:100%}}
+  </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="brand">v.maxd.pro</div>
-      <nav class="menu" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#stack">Stack</a>
-        <a href="#work">Focus</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="wrap hero">
-      <section>
-        <span class="eyebrow">Full-Stack Developer · Web Systems · Integrations</span>
-        <h1>Maxim Markovich</h1>
-        <p class="lead">
-          I build and maintain web systems, e-commerce flows, admin panels, API integrations,
-          and business automation tools. My core stack includes PHP, Laravel, WordPress,
-          WooCommerce, Vue, React, Directus, MySQL, AWS, and Linux.
-        </p>
-        <div class="actions">
-          <a class="btn primary" href="https://github.com/maxfullstackcom" rel="me">View GitHub</a>
-          <a class="btn" href="#services">What I do</a>
-        </div>
-      </section>
-
-      <aside class="hero-card">
-        <h2 style="font-size:28px">What I work on</h2>
-        <ul>
-          <li>Custom websites and internal business systems</li>
-          <li>WordPress and WooCommerce development</li>
-          <li>Laravel backends and API integrations</li>
-          <li>Directus admin panels and automation flows</li>
-          <li>Ongoing support, maintenance, and troubleshooting</li>
-        </ul>
-      </aside>
-    </div>
-
-    <section id="about">
-      <div class="wrap two-col">
-        <div class="card">
-          <h2>About</h2>
-          <p class="muted">
-            I am an independent full-stack developer based in Israel. I work with companies and project owners who need a practical technical partner for building, upgrading, and maintaining real production systems.
-          </p>
-          <p class="muted">
-            My experience includes e-commerce, operations tooling, CMS and admin systems, server-side integrations, webhook processing, invoice and document automation, and long-term support for custom platforms.
-          </p>
-        </div>
-        <div class="card">
-          <h2>How I usually help</h2>
-          <ul class="checklist">
-            <li>Audit and improve existing systems</li>
-            <li>Develop new business features</li>
-            <li>Connect external services and APIs</li>
-            <li>Fix production issues and flow bottlenecks</li>
-            <li>Reduce manual work with automation</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="wrap">
-        <h2>Services</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Web Development</h3>
-            <p class="muted">Custom websites, dashboards, internal tools, and frontends for business workflows.</p>
-          </article>
-          <article class="card">
-            <h3>Backend &amp; Integrations</h3>
-            <p class="muted">Laravel and PHP backends, API integrations, webhooks, cron jobs, and process automation.</p>
-          </article>
-          <article class="card">
-            <h3>E-Commerce</h3>
-            <p class="muted">WordPress, WooCommerce, custom order flows, connectors, and store operations support.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="stack">
-      <div class="wrap card">
-        <h2>Core Stack</h2>
-        <p class="muted">Technologies I regularly use in production and support work.</p>
-        <div class="stack">
-          <span class="tag">PHP</span>
-          <span class="tag">Laravel</span>
-          <span class="tag">WordPress</span>
-          <span class="tag">WooCommerce</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Vue.js</span>
-          <span class="tag">React</span>
-          <span class="tag">Directus</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">AWS</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Cloudron</span>
-          <span class="tag">REST API</span>
-          <span class="tag">Automation</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="wrap two-col">
-        <div class="card">
-          <h2>Typical Project Focus</h2>
-          <p class="muted">
-            I usually work on systems that must stay practical, stable, and maintainable: business websites,
-            admin tools, stores, order systems, connectors between services, and custom process automation.
-          </p>
-          <p class="muted">
-            The goal is not only to ship features, but also to keep operations reliable and easier to support over time.
-          </p>
-        </div>
-        <div class="card">
-          <h2>SEO Notes</h2>
-          <p class="muted">
-            This site is intentionally built as a static HTML page so search engines can read its content directly without depending on client-side JavaScript rendering.
-          </p>
-          <p class="muted small">
-            Includes semantic headings, text content in source HTML, canonical URL, robots rules, sitemap, and structured data.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap card">
-        <h2>Contact</h2>
-        <p class="muted">
-          For project inquiries, collaboration, or support work, the easiest public point of contact here is GitHub.
-        </p>
-        <p><a href="https://github.com/maxfullstackcom" rel="me">github.com/maxfullstackcom</a></p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="wrap footer">
-    <div>© 2026 Maxim Markovich</div>
-    <div class="small">Static HTML landing page for faster indexing and cleaner SEO.</div>
-  </footer>
+  <div id="root"></div>
+  <script type="text/babel">
+    const GOOGLE_SCRIPT_WEB_APP_URL='https://script.google.com/macros/s/AKfycbwJJNtcMBAuyc4z-1OLpGsQDQ7fArI9sstqE_GBdBIB1BF-AqbVJpyFpjp0jjbBhG4l/exec';
+    const dictionary={
+      en:{langLabel:'Language',fullscreenEnter:'⛶ Fullscreen',fullscreenExit:'🗗 Exit fullscreen',brand:'🚀 Full-stack Developer',badge:'⚡ Websites • Landing pages • Integrations',nav:{home:'Home',services:'Services',order:'Order Service',about:'About',contact:'Contact'},heroTitle:'Build faster. Automate smarter. Launch landing pages that convert. 💼',heroLead:'I help businesses launch websites and landing pages, improve existing systems, connect services, automate workflows, and solve technical bottlenecks with practical full-stack development.',primaryCta:'📩 Order service',sectionMain:'Why clients reach out',stats:[['⚙️ Practical solutions','Business-focused development'],['⏱️ Faster delivery','Clear scope and quick execution'],['🛠️ Ongoing support','From idea to maintenance']],servicesTitle:'Services',servicesHead:'What I can help with',servicesLead:'From landing pages and websites to upgrades and rescue work — I cover both product-facing and technical sides of a project.',aboutTitle:'About',aboutHead:'Development for real business needs',aboutCards:[['🧠 Approach','I prefer practical development: understand the goal, remove unnecessary complexity, and deliver something stable and useful.'],['🔒 Focus','Reliability, readable logic, maintainable code, and solutions that can keep growing without chaos.']],problemsTitle:'Common requests',problemsHead:'What clients usually need help with',problems:[['🚨 Broken integrations','When data stops syncing, forms fail, or a process breaks in production.'],['⚡ Fast landing page launch','When a campaign needs a clear, working page without overcomplication.'],['🧩 Messy existing code','When a project already exists, but nobody wants to touch it.'],['🔄 Automation of routine work','When repetitive manual steps should become a stable automated flow.'],['🐢 Slow or unstable website','When the site feels heavy, buggy, or unreliable.'],['📦 Business system improvements','When internal tools, CRM/ERP-like flows, or admin logic need upgrades.']],casesTitle:'Case studies',casesHead:'Examples of the kind of work I do',cases:[['📈 Stabilized a problematic order flow','Fixed unstable processing logic and restored predictable behavior for the team.'],['🔗 Rebuilt integration logic','Reworked data flow between systems to reduce breakage and manual cleanup.'],['🚀 Delivered a landing page quickly','Built a focused landing page for lead capture with clear structure and working contact flow.']],processTitle:'How I work',processHead:'Simple process, clear progress',process:[['1. Request','You send the task, goal, and contact details.'],['2. Quick review','I check the scope and clarify only what is truly needed.'],['3. Estimate','You get a realistic direction on effort, timing, and price.'],['4. Delivery','I implement the solution and keep the flow practical.'],['5. Support','If needed, I help with fixes, upgrades, and next steps.']],stack:'Stack & tools',landingPromoTitle:'Landing page offer',landingPromoLead:'A clean, modern landing page for a service, product, campaign or lead capture — with a realistic budget and scope.',landingFrom:'Landing page from 1,800 ₪',landingMid:'Most business landing pages: 2,500–3,500 ₪',landingNote:'Final price depends on number of sections, languages, forms, integrations and design complexity.',landingIncludesTitle:'What is usually included',landingIncludes:['One responsive landing page','Clear structure and CTA sections','Contact form / lead form','Basic performance-focused setup','Up to 1 language in the base version'],landingTimingTitle:'Typical timing',landingTiming:['Simple landing page: 2–4 days','Extended business landing page: 4–7 days'],landingExtraTitle:'What usually increases price',landingExtras:['Extra languages','Custom animations or unusual sections','Advanced integrations or tracking','Large copy/design revision cycles'],urgencyTitle:'Availability',urgencyHead:'Limited slots for new work',urgencyItems:[['🔥 Limited active slots','I usually take only a small number of parallel projects.'],['⏱️ Fast initial response','Most requests get a first response within a few hours.'],['📅 Better to book early','If the task is tied to advertising or launch timing, it is better not to wait.']],orderTitle:'Order Service',orderHead:'Send a structured request',orderLead:'Choose the service, describe the task, and leave your contact details. This helps me respond faster and more accurately. ✨',orderListTitle:'What you can order',orderListHint:'You can choose a service or simply describe the task in your own words.',formTitle:'Request form',contactTitle:'Contact',contactHead:'Let’s talk',contactLead:'You can reach out about a new project, landing page, upgrade, integration, automation, audit, or technical support.',contactCards:[['🤝 Work format','Development, support, upgrades and technical help'],['🔥 Quick start','Use the order page for a structured request']],quickReq:'Quick request',goOrder:'📨 Go to order page',form:{service:'Service',choose:'Choose a service',name:'Name',namePh:'How should I call you?',company:'Company',companyPh:'Optional',contact:'Contact',contactPh:'Telegram, email or phone',budget:'Budget / estimate',budgetPh:'For example: 1,800–3,500 ₪ or needs estimate',projectType:'Project type',projectTypeChoose:'Choose project type',projectTypes:['Landing page','Business website','Integration / automation','Fix / support','Audit / consultation'],urgency:'Urgency',urgencyChoose:'Choose urgency',urgencyOptions:['No rush','This week','As soon as possible'],deadline:'Deadline',deadlinePh:'Optional date or launch target',message:'Task details',messagePh:'Describe what needs to be done, timeline, and what already exists',send:'Send request',sending:'Sending...',errors:{basic:'Please fill in at least contact and task description.',denied:'Submission rejected.',fail:'Could not send the request. Please try again later.'},ok:'✅ Request sent. I will review it soon.'},footer:'Made with attention to detail.'},
+      ru:{langLabel:'Язык',fullscreenEnter:'⛶ На весь экран',fullscreenExit:'🗗 Выйти из полного экрана',brand:'🚀 Full-stack разработчик',badge:'⚡ Сайты • Лендинги • Интеграции',nav:{home:'Главная',services:'Услуги',order:'Заказать услугу',about:'Обо мне',contact:'Контакты'},heroTitle:'Запускаю быстрее. Автоматизирую умнее. Делаю лендинги, которые приводят заявки. 💼',heroLead:'Помогаю бизнесу запускать сайты и лендинги, улучшать существующие системы, связывать сервисы, автоматизировать процессы и решать технические проблемы через практичную full-stack разработку.',primaryCta:'📩 Заказать услугу',sectionMain:'Почему ко мне обращаются',stats:[['⚙️ Практичный подход','Разработка под задачи бизнеса'],['⏱️ Быстрее к результату','Понятный объём и быстрая реализация'],['🛠️ Поддержка','От идеи до сопровождения']],servicesTitle:'Услуги',servicesHead:'Чем я могу помочь',servicesLead:'От лендингов и сайтов до доработок и спасения существующих систем — беру и продуктовую, и техническую часть.',aboutTitle:'Обо мне',aboutHead:'Разработка под реальные задачи бизнеса',aboutCards:[['🧠 Подход','Мне ближе практичная разработка: понять цель, убрать лишнюю сложность и довести решение до стабильного рабочего состояния.'],['🔒 Фокус','Надёжность, понятная логика, поддерживаемый код и решения, которые можно спокойно развивать дальше.']],problemsTitle:'С какими задачами приходят',problemsHead:'Частые запросы, с которыми ко мне обращаются',problems:[['🚨 Ломаются интеграции','Когда данные перестают ходить, формы не работают или процесс ломается в проде.'],['⚡ Нужно быстро запустить лендинг','Когда под рекламу нужна понятная и рабочая страница без лишней сложности.'],['🧩 Сложный чужой код','Когда проект уже есть, но никто не хочет в него лезть.'],['🔄 Нужно автоматизировать рутину','Когда повторяющиеся ручные действия пора превратить в стабильный процесс.'],['🐢 Сайт тормозит или работает нестабильно','Когда сайт тяжёлый, с багами или просто ведёт себя ненадёжно.'],['📦 Нужны доработки внутренней системы','Когда нужно улучшить CRM-подобную логику, кабинет или админку.']],casesTitle:'Кейсы',casesHead:'Примеры задач, которые я обычно решаю',cases:[['📈 Стабилизировал проблемный процесс заказов','Исправил нестабильную логику обработки и вернул предсказуемую работу для команды.'],['🔗 Пересобрал интеграционную логику','Перестроил поток данных между системами, чтобы снизить поломки и ручную правку.'],['🚀 Быстро запустил лендинг','Собрал сфокусированный лендинг под сбор заявок с понятной структурой и рабочей формой.']],processTitle:'Как я работаю',processHead:'Простой процесс и понятный ход работы',process:[['1. Заявка','Ты присылаешь задачу, цель и контакт.'],['2. Быстрый разбор','Я смотрю объём и уточняю только то, что действительно нужно.'],['3. Оценка','Ты получаешь реалистичный ориентир по срокам, объёму и цене.'],['4. Реализация','Я собираю решение и двигаюсь по задаче без лишней бюрократии.'],['5. Поддержка','Если нужно, помогаю с фиксом, развитием и следующими шагами.']],stack:'Стек и инструменты',landingPromoTitle:'Лендинг-страница',landingPromoLead:'Чистый, современный лендинг для услуги, товара, рекламы или сбора заявок — с понятным объёмом и адекватной ценой.',landingFrom:'Лендинг — от 1,800 ₪',landingMid:'Большинство нормальных лендингов для бизнеса: 2,500–3,500 ₪',landingNote:'Итоговая цена зависит от количества блоков, языков, форм, интеграций и сложности дизайна.',landingIncludesTitle:'Что обычно входит',landingIncludes:['Одна адаптивная лендинг-страница','Понятная структура и CTA-блоки','Форма обращения / сбора заявок','Базовая настройка с упором на скорость','До 1 языка в базовой версии'],landingTimingTitle:'Обычно по срокам',landingTiming:['Простой лендинг: 2–4 дня','Расширенный бизнес-лендинг: 4–7 дней'],landingExtraTitle:'Что обычно увеличивает цену',landingExtras:['Дополнительные языки','Нестандартные анимации и сложные блоки','Интеграции и продвинутая аналитика','Большой цикл правок по тексту и структуре'],urgencyTitle:'Доступность',urgencyHead:'Беру ограниченное количество задач',urgencyItems:[['🔥 Ограниченные слоты','Обычно веду только небольшое количество проектов одновременно.'],['⏱️ Быстрый первый ответ','На большинство обращений отвечаю в течение нескольких часов.'],['📅 Лучше бронировать заранее','Если задача связана с рекламой или запуском, лучше не откладывать.']],orderTitle:'Заказать услугу',orderHead:'Оставить структурированную заявку',orderLead:'Выбери услугу, опиши задачу и оставь контакт. Так я смогу быстрее понять объём и ответить по делу. ✨',orderListTitle:'Что можно заказать',orderListHint:'Можно выбрать услугу или просто описать задачу своими словами.',formTitle:'Форма заявки',contactTitle:'Контакты',contactHead:'Связаться со мной',contactLead:'Можно написать по новому проекту, лендингу, доработке, интеграции, автоматизации, аудиту или технической поддержке.',contactCards:[['🤝 Формат работы','Разработка, сопровождение, доработка и техническая помощь'],['🔥 Быстрый старт','Для понятной заявки используй страницу заказа']],quickReq:'Быстрый запрос',goOrder:'📨 Перейти к заказу',form:{service:'Услуга',choose:'Выбери услугу',name:'Имя',namePh:'Как к тебе обращаться?',company:'Компания',companyPh:'Необязательно',contact:'Контакт',contactPh:'Telegram, email или телефон',budget:'Бюджет / ориентир',budgetPh:'Например: 1,800–3,500 ₪ или нужно оценить',projectType:'Тип проекта',projectTypeChoose:'Выбери тип проекта',projectTypes:['Лендинг','Сайт для бизнеса','Интеграция / автоматизация','Доработка / поддержка','Аудит / консультация'],urgency:'Срочность',urgencyChoose:'Выбери срочность',urgencyOptions:['Не срочно','На этой неделе','Как можно скорее'],deadline:'Дедлайн',deadlinePh:'Необязательная дата или цель запуска',message:'Описание задачи',messagePh:'Опиши, что нужно сделать, сроки и что уже есть',send:'Отправить заявку',sending:'Отправка...',errors:{basic:'Заполни хотя бы контакт и описание задачи.',denied:'Отправка отклонена.',fail:'Не удалось отправить заявку. Попробуй ещё раз позже.'},ok:'✅ Заявка отправлена. Я скоро её посмотрю.'},footer:'Сделано с вниманием к деталям.'},
+      he:{langLabel:'שפה',fullscreenEnter:'⛶ מסך מלא',fullscreenExit:'🗗 יציאה ממסך מלא',brand:'🚀 מפתח Full-stack',badge:'⚡ אתרים • דפי נחיתה • אינטגרציות',nav:{home:'ראשי',services:'שירותים',order:'הזמנת שירות',about:'עליי',contact:'יצירת קשר'},heroTitle:'בונים מהר יותר. מאוטומטים חכם יותר. מקימים דפי נחיתה שמביאים פניות. 💼',heroLead:'אני עוזר לעסקים להקים אתרים ודפי נחיתה, לשפר מערכות קיימות, לחבר בין שירותים, לאוטומט תהליכים ולפתור צווארי בקבוק טכניים בעזרת פיתוח full-stack פרקטי.',primaryCta:'📩 להזמין שירות',sectionMain:'למה פונים אליי',stats:[['⚙️ פתרונות פרקטיים','פיתוח שמכוון לתוצאה עסקית'],['⏱️ התקדמות מהירה יותר','היקף ברור וביצוע מהיר'],['🛠️ ליווי ותמיכה','מרעיון ועד תחזוקה']],servicesTitle:'שירותים',servicesHead:'איך אני יכול לעזור',servicesLead:'מדפי נחיתה ואתרים ועד שדרוגים ותיקונים במערכות קיימות — אני מטפל גם בצד המוצר וגם בצד הטכני.',aboutTitle:'עליי',aboutHead:'פיתוח שמבוסס על צרכים אמיתיים של העסק',aboutCards:[['🧠 גישה','אני מעדיף פיתוח פרקטי: להבין את המטרה, להוריד מורכבות מיותרת ולהגיע לפתרון יציב ושימושי.'],['🔒 מיקוד','אמינות, לוגיקה ברורה, קוד שנוח לתחזק ופתרונות שאפשר להמשיך לפתח בלי כאוס.']],problemsTitle:'עם אילו בעיות פונים אליי',problemsHead:'בקשות נפוצות שאני מטפל בהן',problems:[['🚨 אינטגרציות שנשברו','כשמידע מפסיק לעבור, טפסים מפסיקים לעבוד או תהליך נשבר בפרודקשן.'],['⚡ צריך להרים דף נחיתה מהר','כשצריך עמוד ברור ועובד לקמפיין בלי להסתבך.'],['🧩 קוד קיים שאף אחד לא רוצה לגעת בו','כשיש פרויקט קיים אבל קשה להמשיך ממנו.'],['🔄 צריך לאוטומט עבודה שחוזרת על עצמה','כשיש פעולות ידניות קבועות שכדאי להפוך לתהליך מסודר.'],['🐢 אתר איטי או לא יציב','כשהאתר כבד, מלא באגים או פשוט לא אמין.'],['📦 צריך לשפר מערכת פנימית','כשצריך לשדרג לוגיקה של אדמין, אזור אישי או תהליך עסקי.']],casesTitle:'דוגמאות עבודה',casesHead:'סוגי משימות שאני בדרך כלל פותר',cases:[['📈 ייצבתי תהליך הזמנות בעייתי','תיקנתי לוגיקה לא יציבה והחזרתי עבודה צפויה לצוות.'],['🔗 בניתי מחדש את לוגיקת האינטגרציה','סידרתי מחדש את זרימת המידע בין מערכות כדי לצמצם תקלות ועבודה ידנית.'],['🚀 הקמתי מהר דף נחיתה','בניית דף נחיתה ממוקד לאיסוף פניות עם מבנה ברור וטופס עובד.']],processTitle:'איך אני עובד',processHead:'תהליך פשוט והתקדמות ברורה',process:[['1. פנייה','שולחים את המשימה, המטרה ודרך יצירת קשר.'],['2. בדיקה מהירה','אני בודק את ההיקף ושואל רק מה שבאמת צריך.'],['3. הערכה','מקבלים כיוון ריאלי על זמן, היקף ועלות.'],['4. ביצוע','אני מקים את הפתרון ומתקדם בצורה פרקטית.'],['5. תמיכה','אם צריך, אני ממשיך עם תיקונים, שיפורים והמשך עבודה.']],stack:'טכנולוגיות וכלים',landingPromoTitle:'הצעת דף נחיתה',landingPromoLead:'דף נחיתה נקי ומודרני לשירות, מוצר, קמפיין או איסוף לידים — עם היקף ברור ומחיר הגיוני.',landingFrom:'דף נחיתה — החל מ־1,800 ₪',landingMid:'רוב דפי הנחיתה העסקיים ברמה טובה: 2,500–3,500 ₪',landingNote:'המחיר הסופי תלוי בכמות הבלוקים, שפות, טפסים, אינטגרציות ומורכבות העיצוב.',landingIncludesTitle:'מה בדרך כלל כלול',landingIncludes:['דף נחיתה רספונסיבי אחד','מבנה ברור עם אזורי CTA','טופס יצירת קשר / איסוף לידים','הקמה בסיסית עם דגש על מהירות','עד שפה אחת בגרסת הבסיס'],landingTimingTitle:'בדרך כלל בזמנים',landingTiming:['דף נחיתה פשוט: 2–4 ימים','דף נחיתה עסקי מורחב: 4–7 ימים'],landingExtraTitle:'מה בדרך כלל מעלה את המחיר',landingExtras:['שפות נוספות','אנימציות לא שגרתיות או בלוקים מיוחדים','אינטגרציות ומדידה מתקדמת','סבבי שינויים גדולים בטקסט ובמבנה'],urgencyTitle:'זמינות',urgencyHead:'אני לוקח מספר מוגבל של פרויקטים',urgencyItems:[['🔥 סלוטים מוגבלים','בדרך כלל אני עובד רק על מספר קטן של פרויקטים במקביל.'],['⏱️ תגובה ראשונה מהירה','לרוב הפניות אני חוזר תוך כמה שעות.'],['📅 עדיף לסגור מראש','אם המשימה קשורה לקמפיין או להשקה, עדיף לא לחכות.']],orderTitle:'הזמנת שירות',orderHead:'שליחת בקשה מסודרת',orderLead:'בחר שירות, תאר בקצרה את המשימה והשאר פרטי קשר. כך אוכל להבין מהר יותר את היקף העבודה ולחזור אליך בצורה מדויקת. ✨',orderListTitle:'מה אפשר להזמין',orderListHint:'אפשר לבחור שירות ספציפי או פשוט לתאר את הצורך במילים שלך.',formTitle:'טופס בקשה',contactTitle:'יצירת קשר',contactHead:'בוא נדבר',contactLead:'אפשר לפנות לגבי פרויקט חדש, דף נחיתה, שדרוג מערכת קיימת, אינטגרציה, אוטומציה, ביקורת טכנית או תמיכה.',contactCards:[['🤝 אופן העבודה','פיתוח, תחזוקה, שדרוגים ותמיכה טכנית'],['🔥 התחלה מהירה','לבקשה מסודרת עדיף להשתמש בעמוד ההזמנה']],quickReq:'פנייה מהירה',goOrder:'📨 מעבר להזמנה',form:{service:'שירות',choose:'בחר שירות',name:'שם',namePh:'איך לפנות אליך?',company:'חברה',companyPh:'לא חובה',contact:'פרטי קשר',contactPh:'טלגרם, אימייל או טלפון',budget:'תקציב / כיוון',budgetPh:'למשל: 1,800–3,500 ₪ או צריך הערכה',projectType:'סוג פרויקט',projectTypeChoose:'בחר סוג פרויקט',projectTypes:['דף נחיתה','אתר עסקי','אינטגרציה / אוטומציה','תיקון / תמיכה','ביקורת / ייעוץ'],urgency:'דחיפות',urgencyChoose:'בחר דחיפות',urgencyOptions:['לא דחוף','השבוע','כמה שיותר מהר'],deadline:'דדליין',deadlinePh:'תאריך אופציונלי או יעד להשקה',message:'תיאור המשימה',messagePh:'כתוב מה צריך לעשות, לוחות זמנים ומה כבר קיים',send:'שליחת בקשה',sending:'שולח...',errors:{basic:'נא למלא לפחות פרטי קשר ותיאור המשימה.',denied:'השליחה נדחתה.',fail:'לא ניתן היה לשלוח את הבקשה. נסה שוב מאוחר יותר.'},ok:'✅ הבקשה נשלחה. אבדוק אותה בקרוב.'},footer:'נבנה עם תשומת לב לפרטים.'}
+    };
+    const serviceContent={landing:{en:['🚀 Landing page','A focused landing page for a service, product, campaign or lead capture.'],ru:['🚀 Лендинг-страница','Лендинг под услугу, товар, рекламу или сбор заявок.'],he:['🚀 דף נחיתה','דף נחיתה ממוקד לשירות, מוצר, קמפיין או איסוף לידים.']},website:{en:['🌐 Website development','Websites, admin panels, and custom web systems tailored to business needs.'],ru:['🌐 Веб-разработка','Сайты, админки и кастомные веб-системы под задачи бизнеса.'],he:['🌐 פיתוח אתרים','אתרים, פאנלים לניהול ומערכות ווב מותאמות לצורכי העסק.']},integration:{en:['🔗 Integrations & automation','APIs, documents, workflows, CRM/ERP-like connections and process automation.'],ru:['🔗 Интеграции и автоматизация','API, документы, процессы, CRM/ERP-подобные связки и автоматизация.'],he:['🔗 אינטגרציות ואוטומציה','API, מסמכים, תהליכים, חיבורים בין מערכות ואוטומציה של עבודה.']},support:{en:['🛠️ Support & infrastructure','Backend, frontend, databases, deployment, hosting, diagnostics and support.'],ru:['🛠️ Поддержка и инфраструктура','Backend, frontend, базы данных, деплой, хостинг, диагностика и поддержка.'],he:['🛠️ תמיכה ותשתיות','Backend, frontend, מסדי נתונים, דיפלוי, אחסון, דיאגנוסטיקה ותמיכה.']},store:{en:['🛒 Online store','Storefronts, cart, payments, shipping, catalog and admin improvements.'],ru:['🛒 Интернет-магазин','Каталог, корзина, оплата, доставка и улучшение административной части.'],he:['🛒 חנות אונליין','קטלוג, סל קניות, תשלומים, משלוחים ושיפור אזור הניהול.']},crm:{en:['📊 CRM / internal system','Dashboards, internal tools, tracking flows and business process management.'],ru:['📊 CRM / внутренняя система','Кабинеты, внутренние инструменты, учёт и управление процессами.'],he:['📊 CRM / מערכת פנימית','דשבורדים, כלים פנימיים, מעקב וניהול תהליכים עסקיים.']},audit:{en:['🧪 Technical audit','Review of bottlenecks, architecture, risks, and realistic next steps.'],ru:['🧪 Технический аудит','Разбор узких мест, архитектуры, рисков и реалистичных шагов дальше.'],he:['🧪 ביקורת טכנית','בדיקת צווארי בקבוק, ארכיטקטורה, סיכונים והצעדים הבאים.']}};
+    const serviceKeys=['landing','website','integration','support','store','crm','audit']; const technologies=['PHP','Laravel','WordPress','WooCommerce','JavaScript','Vue','React','MySQL','Directus','Linux','AWS','API']; const pageKeys=['home','services','order','about','contact'];
+    function getInitialLang(){const hash=window.location.hash.split('?')[1]||'';const p=new URLSearchParams(hash).get('lang');return['en','ru','he'].includes(p)?p:'en'}
+    function getPageFromHash(){const key=window.location.hash.replace('#/','').split('?')[0]||'home';return pageKeys.includes(key)?key:'home'}
+    function getServiceFromHash(){const raw=window.location.hash.split('?')[1]||'';const params=new URLSearchParams(raw);const service=params.get('service')||'';return serviceKeys.includes(service)?service:''}
+    function setHash(page,lang,service=''){const params=new URLSearchParams();params.set('lang',lang);if(service)params.set('service',service);window.location.hash=`#/${page}${params.toString()?'?'+params.toString():''}`}
+    function updateSeo(page,lang){const seoMap={home:{en:['Full-stack Developer | Websites, Landing Pages, Integrations','Websites, landing pages, integrations, automation, and technical support for businesses.'],ru:['Full-stack разработчик | Сайты, лендинги, интеграции','Разработка сайтов и лендингов, интеграции, автоматизация и техническая поддержка для бизнеса.'],he:['מפתח Full-stack | אתרים, דפי נחיתה, אינטגרציות','פיתוח אתרים ודפי נחיתה, אינטגרציות, אוטומציה ותמיכה טכנית לעסקים.']},services:{en:['Services | Websites, Landing Pages, Automation','Website development, landing pages, integrations, automation, technical audits, and support.'],ru:['Услуги | Сайты, лендинги, автоматизация','Разработка сайтов, лендингов, интеграции, автоматизация, технический аудит и поддержка.'],he:['שירותים | אתרים, דפי נחיתה, אוטומציה','פיתוח אתרים ודפי נחיתה, אינטגרציות, אוטומציה, ביקורת טכנית ותמיכה.']},order:{en:['Order Service | Landing Pages, Websites, Integrations','Order a landing page, website, integration, automation work, audit, or technical support.'],ru:['Заказать услугу | Лендинги, сайты, интеграции','Заказать лендинг, сайт, интеграцию, автоматизацию, аудит или техническую поддержку.'],he:['הזמנת שירות | דפי נחיתה, אתרים, אינטגרציות','הזמנת דף נחיתה, אתר, אינטגרציה, אוטומציה, ביקורת או תמיכה טכנית.']},about:{en:['About | Full-stack Developer','Practical full-stack development for real business goals and maintainable systems.'],ru:['Обо мне | Full-stack разработчик','Практичная full-stack разработка под реальные задачи бизнеса и поддерживаемые системы.'],he:['עליי | מפתח Full-stack','פיתוח full-stack פרקטי לצרכים אמיתיים של העסק ולמערכות שנוח לתחזק.']},contact:{en:['Contact | Full-stack Developer','Get in touch about a website, landing page, upgrade, integration, audit, or technical support.'],ru:['Контакты | Full-stack разработчик','Связь по сайту, лендингу, доработке, интеграции, аудиту или технической поддержке.'],he:['יצירת קשר | מפתח Full-stack','יצירת קשר לגבי אתר, דף נחיתה, שדרוג, אינטגרציה, ביקורת או תמיכה טכנית.']}};const [title,description]=seoMap[page][lang];document.title=title;const d=document.querySelector('meta[name="description"]');if(d)d.setAttribute('content',description);const ogt=document.querySelector('meta[property="og:title"]');if(ogt)ogt.setAttribute('content',title);const ogd=document.querySelector('meta[property="og:description"]');if(ogd)ogd.setAttribute('content',description);const twt=document.querySelector('meta[name="twitter:title"]');if(twt)twt.setAttribute('content',title);const twd=document.querySelector('meta[name="twitter:description"]');if(twd)twd.setAttribute('content',description)}
+    function Nav({current,lang,setLang,t,isFullscreen,toggleFullscreen,fullscreenSupported}){return <nav className="nav"><div className="brand">{t.brand}</div><div className="nav-right"><div className="nav-links">{pageKeys.map(k=><a key={k} href={`#/${k}?lang=${lang}`} className={`nav-link ${current===k?'active':''}`}>{t.nav[k]}</a>)}</div><button className={`fullscreen-btn ${isFullscreen?'active':''}`} onClick={toggleFullscreen} disabled={!fullscreenSupported} title={isFullscreen?t.fullscreenExit:t.fullscreenEnter}>{isFullscreen?t.fullscreenExit:t.fullscreenEnter}</button><div className="lang-switch" aria-label={t.langLabel}><button className={`lang-btn ${lang==='en'?'active':''}`} onClick={()=>setLang('en')}>EN</button><button className={`lang-btn ${lang==='ru'?'active':''}`} onClick={()=>setLang('ru')}>RU</button><button className={`lang-btn ${lang==='he'?'active':''}`} onClick={()=>setLang('he')}>HE</button></div></div></nav>}
+    function LandingPromo({lang,t}){return <section className="section"><p className="section-title">{t.landingPromoTitle}</p><div className="grid-2"><article className="panel"><h3>{serviceContent.landing[lang][0]}</h3><p>{t.landingPromoLead}</p><div className="panel-price">{t.landingFrom}</div><div className="panel-price">{t.landingMid}</div><p style={{marginTop:'12px'}}>{t.landingNote}</p><div className="panel-note"><strong>{t.landingTimingTitle}</strong><ul>{t.landingTiming.map((item,i)=><li key={i}>{item}</li>)}</ul></div><div className="panel-note"><strong>{t.landingExtraTitle}</strong><ul>{t.landingExtras.map((item,i)=><li key={i}>{item}</li>)}</ul></div><div className="panel-cta"><a className="btn btn-primary" href={`#/order?lang=${lang}&service=landing`}>{t.primaryCta}</a></div></article><article className="panel"><h3>{t.landingIncludesTitle}</h3><ul>{t.landingIncludes.map((item,i)=><li key={i}>{item}</li>)}</ul></article></div></section>}
+    function UrgencySection({t}){return <section className="section"><p className="section-title">{t.urgencyTitle}</p><h2>{t.urgencyHead}</h2><div className="grid section">{t.urgencyItems.map(([title,text],i)=><article className="panel" key={i}><h3>{title}</h3><p>{text}</p></article>)}</div></section>}
+    function ProblemsSection({t}){return <section className="section"><p className="section-title">{t.problemsTitle}</p><h2>{t.problemsHead}</h2><div className="grid section">{t.problems.map(([title,text],i)=><article className="panel" key={i}><h3>{title}</h3><p>{text}</p></article>)}</div></section>}
+    function CasesSection({t}){return <section className="section"><p className="section-title">{t.casesTitle}</p><h2>{t.casesHead}</h2><div className="grid section">{t.cases.map(([title,text],i)=><article className="panel" key={i}><h3>{title}</h3><p>{text}</p></article>)}</div></section>}
+    function ProcessSection({t}){return <section className="section"><p className="section-title">{t.processTitle}</p><h2>{t.processHead}</h2><div className="grid section">{t.process.map(([title,text],i)=><article className="panel" key={i}><h3>{title}</h3><p>{text}</p></article>)}</div></section>}
+    function HomePage({lang,t}){return <><div className="badge">{t.badge}</div><h1>{t.heroTitle}</h1><p className="lead">{t.heroLead}</p><div className="actions"><a className="btn btn-primary" href={`#/order?lang=${lang}`}>{t.primaryCta}</a><a className="btn btn-secondary" href={`#/order?lang=${lang}&service=landing`}>{serviceContent.landing[lang][0]}</a></div><div className="stats">{t.stats.map(([a,b],i)=><div className="stat" key={i}><strong>{a}</strong><span>{b}</span></div>)}</div><UrgencySection t={t} /><LandingPromo lang={lang} t={t} /><ProblemsSection t={t} /><CasesSection t={t} /><ProcessSection t={t} /><section className="section"><p className="section-title">{t.sectionMain}</p><div className="grid">{serviceKeys.slice(0,3).map(key=><article className="panel" key={key}><h3>{serviceContent[key][lang][0]}</h3><p>{serviceContent[key][lang][1]}</p><div className="panel-cta"><a className="btn btn-secondary" href={`#/order?lang=${lang}&service=${key}`}>{t.primaryCta}</a></div></article>)}</div></section></>}
+    function ServicesPage({lang,t}){return <><p className="section-title">{t.servicesTitle}</p><h2>{t.servicesHead}</h2><p className="muted">{t.servicesLead}</p><UrgencySection t={t} /><LandingPromo lang={lang} t={t} /><div className="grid section">{serviceKeys.map(key=><article className="panel" key={key}><h3>{serviceContent[key][lang][0]}</h3><p>{serviceContent[key][lang][1]}</p>{key==='landing'?<div className="panel-price">{t.landingFrom}</div>:null}<div className="panel-cta"><a className="btn btn-secondary" href={`#/order?lang=${lang}&service=${key}`}>{t.primaryCta}</a></div></article>)}</div></>}
+    function AboutPage({t}){return <><p className="section-title">{t.aboutTitle}</p><h2>{t.aboutHead}</h2><div className="grid-2 section">{t.aboutCards.map(([title,text],i)=><article className="panel" key={i}><h3>{title}</h3><p>{text}</p></article>)}</div><section className="section"><p className="section-title">{t.stack}</p><div className="panel"><div className="tech-list">{technologies.map(tech=><span className="tech" key={tech}>{tech}</span>)}</div></div></section></>}
+    function LeadForm({lang,t,initialService=''}){const [form,setForm]=React.useState({name:'',contact:'',service:initialService,budget:'',message:'',company:'',website:'',projectType:'',urgency:'',deadline:''});const [loading,setLoading]=React.useState(false);const [status,setStatus]=React.useState({type:'',text:''});React.useEffect(()=>{setForm(prev=>({...prev,service:initialService||prev.service}))},[initialService]);const onChange=e=>setForm({...form,[e.target.name]:e.target.value});async function onSubmit(e){e.preventDefault();setStatus({type:'',text:''});if(form.website.trim()){setStatus({type:'err',text:t.form.errors.denied});return}if(!form.contact.trim()||!form.message.trim()){setStatus({type:'err',text:t.form.errors.basic});return}setLoading(true);try{await fetch(GOOGLE_SCRIPT_WEB_APP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({name:form.name.trim(),contact:form.contact.trim(),company:form.company.trim(),service:form.service?serviceContent[form.service][lang][0]:'',budget:form.budget.trim(),project_type:form.projectType.trim(),urgency:form.urgency.trim(),deadline:form.deadline.trim(),message:form.message.trim(),source:window.location.href,origin:window.location.origin,sent_at:new Date().toISOString(),hp_field:form.website.trim()})});setStatus({type:'ok',text:t.form.ok});setForm({name:'',contact:'',service:initialService,budget:'',message:'',company:'',website:'',projectType:'',urgency:'',deadline:''})}catch(err){setStatus({type:'err',text:t.form.errors.fail})}finally{setLoading(false)}}return <form className="form" onSubmit={onSubmit}><div className="field"><label htmlFor="service">{t.form.service}</label><select className="select" id="service" name="service" value={form.service} onChange={onChange}><option value="">{t.form.choose}</option>{serviceKeys.map(key=><option value={key} key={key}>{serviceContent[key][lang][0]}</option>)}</select></div><div className="field"><label htmlFor="projectType">{t.form.projectType}</label><select className="select" id="projectType" name="projectType" value={form.projectType} onChange={onChange}><option value="">{t.form.projectTypeChoose}</option>{t.form.projectTypes.map((item,i)=><option value={item} key={i}>{item}</option>)}</select></div><div className="field"><label htmlFor="name">{t.form.name}</label><input className="input" id="name" name="name" value={form.name} onChange={onChange} placeholder={t.form.namePh} /></div><div className="field"><label htmlFor="company">{t.form.company}</label><input className="input" id="company" name="company" value={form.company} onChange={onChange} placeholder={t.form.companyPh} /></div><div className="field"><label htmlFor="contact">{t.form.contact}</label><input className="input" id="contact" name="contact" value={form.contact} onChange={onChange} placeholder={t.form.contactPh} required /></div><div className="field"><label htmlFor="budget">{t.form.budget}</label><input className="input" id="budget" name="budget" value={form.budget} onChange={onChange} placeholder={t.form.budgetPh} /></div><div className="field"><label htmlFor="urgency">{t.form.urgency}</label><select className="select" id="urgency" name="urgency" value={form.urgency} onChange={onChange}><option value="">{t.form.urgencyChoose}</option>{t.form.urgencyOptions.map((item,i)=><option value={item} key={i}>{item}</option>)}</select></div><div className="field"><label htmlFor="deadline">{t.form.deadline}</label><input className="input" id="deadline" name="deadline" value={form.deadline} onChange={onChange} placeholder={t.form.deadlinePh} /></div><div className="field"><label htmlFor="message">{t.form.message}</label><textarea className="textarea" id="message" name="message" value={form.message} onChange={onChange} placeholder={t.form.messagePh} required /></div><div className="field hidden" aria-hidden="true"><label htmlFor="website">Website</label><input tabIndex="-1" autoComplete="off" className="input" id="website" name="website" value={form.website} onChange={onChange} /></div>{status.text?<div className={`status ${status.type==='ok'?'ok':'err'}`}>{status.text}</div>:null}<div className="actions"><button className="btn btn-primary" type="submit" disabled={loading}>{loading?t.form.sending:t.form.send}</button></div></form>}
+    function OrderPage({lang,t}){const initialService=getServiceFromHash();return <><p className="section-title">{t.orderTitle}</p><h2>{t.orderHead}</h2><p className="muted">{t.orderLead}</p><UrgencySection t={t} /><LandingPromo lang={lang} t={t} /><div className="grid-2 section"><article className="panel"><h3>{t.orderListTitle}</h3><ul>{serviceKeys.map(key=><li key={key}>{serviceContent[key][lang][0]}</li>)}</ul><div className="panel-cta"><span>{t.orderListHint}</span></div></article><article className="panel"><h3>{t.formTitle}</h3><LeadForm lang={lang} t={t} initialService={initialService} /></article></div></>}
+    function ContactPage({lang,t}){return <><p className="section-title">{t.contactTitle}</p><h2>{t.contactHead}</h2><p className="muted">{t.contactLead}</p><div className="grid-2 section"><article className="panel"><div className="contact-list">{t.contactCards.map(([a,b],i)=><div className="contact-item" key={i}><strong>{a}</strong><span>{b}</span></div>)}</div><div className="actions"><a className="btn btn-primary" href={`#/order?lang=${lang}`}>{t.goOrder}</a></div></article><article className="panel"><h3>{t.quickReq}</h3><LeadForm lang={lang} t={t} /></article></div></>}
+    function Footer({t}){return <footer className="footer"><span>© 2026. {t.footer}</span><span>Full-stack Developer</span></footer>}
+    function App(){const [lang,setLangState]=React.useState(getInitialLang());const [current,setCurrent]=React.useState(getPageFromHash());const [isFullscreen,setIsFullscreen]=React.useState(!!document.fullscreenElement);const fullscreenSupported=typeof document.documentElement.requestFullscreen==='function';React.useEffect(()=>{const onHashChange=()=>{setCurrent(getPageFromHash());setLangState(getInitialLang())};const onFullscreenChange=()=>setIsFullscreen(!!document.fullscreenElement);window.addEventListener('hashchange',onHashChange);document.addEventListener('fullscreenchange',onFullscreenChange);if(!window.location.hash)setHash('home',lang);return ()=>{window.removeEventListener('hashchange',onHashChange);document.removeEventListener('fullscreenchange',onFullscreenChange)}},[]);async function toggleFullscreen(){if(!fullscreenSupported)return;try{if(document.fullscreenElement){await document.exitFullscreen()}else{await document.documentElement.requestFullscreen()}}catch(e){console.error('Fullscreen toggle failed',e)}}function setLang(next){setLangState(next);setHash(current,next,current==='order'?getServiceFromHash():'')}const t=dictionary[lang];const isRtl=lang==='he';let pageContent=<HomePage lang={lang} t={t} />;if(current==='services')pageContent=<ServicesPage lang={lang} t={t} />;else if(current==='about')pageContent=<AboutPage t={t} />;else if(current==='contact')pageContent=<ContactPage lang={lang} t={t} />;else if(current==='order')pageContent=<OrderPage lang={lang} t={t} />;React.useEffect(()=>{document.documentElement.lang=lang;document.documentElement.dir=isRtl?'rtl':'ltr';updateSeo(current,lang)},[lang,isRtl,current]);return <div className={`page ${isRtl?'rtl':''}`}><main className="shell"><Nav current={current} lang={lang} setLang={setLang} t={t} isFullscreen={isFullscreen} toggleFullscreen={toggleFullscreen} fullscreenSupported={fullscreenSupported} /><section className="content">{pageContent}</section><Footer t={t} /></main></div>}
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
 </body>
 </html>
