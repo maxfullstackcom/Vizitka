@@ -35,14 +35,32 @@
     }
   </script>
   <style>
-    *{box-sizing:border-box}html,body{margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,Arial,sans-serif;color:#e5e7eb;background:radial-gradient(circle at top right, rgba(56,189,248,.18), transparent 28%),radial-gradient(circle at bottom left, rgba(99,102,241,.16), transparent 30%),linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh}a{color:inherit}.page{max-width:1120px;margin:0 auto;padding:28px}.shell{background:rgba(15,23,42,.78);border:1px solid rgba(255,255,255,.1);border-radius:28px;box-shadow:0 24px 80px rgba(0,0,0,.35);backdrop-filter:blur(10px);overflow:hidden}.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);position:sticky;top:0;z-index:10}.brand{font-weight:800;font-size:18px;letter-spacing:.02em}.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.nav-links{display:flex;gap:10px;flex-wrap:wrap}.nav-link{text-decoration:none;padding:10px 14px;border-radius:12px;color:#cbd5e1;border:1px solid transparent;transition:.18s ease}.nav-link:hover,.nav-link.active{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06)}.lang-switch{display:flex;gap:6px;flex-wrap:wrap}.lang-btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#cbd5e1;cursor:pointer;font:inherit}.lang-btn.active{background:rgba(56,189,248,.12);color:#7dd3fc;border-color:rgba(56,189,248,.24)}.content{padding:42px 40px 28px}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid rgba(56,189,248,.3);background:rgba(56,189,248,.08);color:#7dd3fc;font-size:14px;margin-bottom:18px}h1{margin:0;font-size:clamp(34px,7vw,64px);line-height:1.02;max-width:860px}h2{margin:0 0 14px;font-size:28px}h3{margin:0 0 10px;font-size:20px}.lead{margin:18px 0 0;max-width:860px;font-size:20px;line-height:1.7;color:#cbd5e1}.muted{color:#cbd5e1;line-height:1.8;font-size:18px}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;text-decoration:none;font-weight:700;transition:.18s ease;border:none;cursor:pointer}.btn:hover{transform:translateY(-1px)}.btn-primary{background:#38bdf8;color:#082f49}.btn-secondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#e5e7eb}.section{margin-top:34px}.section-title{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#7dd3fc;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}.stat{padding:18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.stat strong{display:block;font-size:24px;margin-bottom:6px}.panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px}.panel p,.panel li,.panel span{margin:0;color:#cbd5e1;line-height:1.7}.panel ul{margin:0;padding-left:18px}.panel-cta{margin-top:16px}.panel-price{margin-top:12px;padding:12px 14px;border-radius:14px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.16);font-weight:700;color:#dbeafe}.panel-note{margin-top:10px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.footer{margin-top:10px;padding:24px 40px 32px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:#94a3b8;font-size:14px}.lang-content{display:none}.lang-content.active{display:block}.rtl{text-align:right;direction:rtl}.rtl .nav{direction:rtl}.rtl .nav-right{direction:rtl}.rtl .nav-links{direction:rtl}.rtl .actions{direction:rtl}.rtl .panel ul{padding-right:18px;padding-left:0}@media (max-width:860px){.grid,.grid-2,.stats{grid-template-columns:1fr}.content,.footer{padding-left:24px;padding-right:24px}.nav{padding:16px 20px;align-items:flex-start;flex-direction:column}.nav-right{width:100%}}
+    :root{--bg:#07111f;--bg2:#0d1728;--panel:rgba(255,255,255,.045);--panel-strong:rgba(255,255,255,.06);--line:rgba(255,255,255,.09);--text:#e8eef9;--muted:#b6c2d8;--accent:#63d2ff;--accent2:#7c87ff;--accent3:#72f0ba;--shadow:0 30px 90px rgba(0,0,0,.38)}
+    *{box-sizing:border-box}html,body{margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,Arial,sans-serif;color:var(--text);background:
+      radial-gradient(circle at 10% 10%, rgba(99,210,255,.16), transparent 24%),
+      radial-gradient(circle at 85% 15%, rgba(124,135,255,.14), transparent 26%),
+      radial-gradient(circle at 25% 85%, rgba(114,240,186,.10), transparent 22%),
+      linear-gradient(140deg,var(--bg),var(--bg2));min-height:100vh;overflow-x:hidden}
+    a{color:inherit}.page{max-width:1160px;margin:0 auto;padding:28px;position:relative}.shell{position:relative;background:rgba(8,15,29,.72);border:1px solid rgba(255,255,255,.08);border-radius:30px;box-shadow:var(--shadow);backdrop-filter:blur(14px);overflow:hidden}.shell::before{content:"";position:absolute;inset:-30% auto auto -15%;width:320px;height:320px;background:radial-gradient(circle, rgba(99,210,255,.15), transparent 70%);filter:blur(20px);pointer-events:none}.shell::after{content:"";position:absolute;inset:auto -10% -20% auto;width:300px;height:300px;background:radial-gradient(circle, rgba(124,135,255,.15), transparent 70%);filter:blur(30px);pointer-events:none}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 28px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);position:sticky;top:0;z-index:20}.brand{font-weight:800;font-size:18px;letter-spacing:.02em;display:flex;align-items:center;gap:10px}.brand-dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 18px rgba(99,210,255,.7)}.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.nav-links{display:flex;gap:10px;flex-wrap:wrap}.nav-link{text-decoration:none;padding:10px 14px;border-radius:12px;color:#cfdbef;border:1px solid transparent;transition:.22s ease}.nav-link:hover,.nav-link.active{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.06);transform:translateY(-1px)}.lang-switch{display:flex;gap:6px;flex-wrap:wrap}.lang-btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#cbd5e1;cursor:pointer;font:inherit;transition:.2s ease}.lang-btn:hover{transform:translateY(-1px)}.lang-btn.active{background:rgba(99,210,255,.12);color:var(--accent);border-color:rgba(99,210,255,.24)}
+    .content{padding:44px 40px 34px;position:relative;z-index:2}.lang-content{display:none}.lang-content.active{display:block}.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:24px;align-items:stretch}.hero-main,.hero-side,.stat,.panel{opacity:0;transform:translateY(18px);animation:rise .7s ease forwards}.hero-side{animation-delay:.08s}.stats .stat:nth-child(1){animation-delay:.14s}.stats .stat:nth-child(2){animation-delay:.2s}.stats .stat:nth-child(3){animation-delay:.26s}.section .panel:nth-child(1){animation-delay:.06s}.section .panel:nth-child(2){animation-delay:.12s}.section .panel:nth-child(3){animation-delay:.18s}.section .panel:nth-child(4){animation-delay:.24s}.section .panel:nth-child(5){animation-delay:.30s}.section .panel:nth-child(6){animation-delay:.36s}
+    @keyframes rise{to{opacity:1;transform:translateY(0)}}
+    @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 rgba(99,210,255,0)}50%{box-shadow:0 0 36px rgba(99,210,255,.18)}}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid rgba(99,210,255,.24);background:rgba(99,210,255,.08);color:var(--accent);font-size:14px;margin-bottom:18px}.badge::before{content:"";width:8px;height:8px;border-radius:999px;background:var(--accent3);animation:pulseGlow 2.2s ease-in-out infinite}
+    h1{margin:0;font-size:clamp(40px,7vw,72px);line-height:.98;max-width:900px;letter-spacing:-.04em}h2{margin:0 0 14px;font-size:30px;letter-spacing:-.02em}h3{margin:0 0 10px;font-size:20px}.lead{margin:20px 0 0;max-width:800px;font-size:20px;line-height:1.75;color:var(--muted)}.hero-copy{max-width:760px}.hero-highlight{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}.mini-pill{padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:14px;color:#d9e6f7}.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;text-decoration:none;font-weight:700;transition:.22s ease;border:none;cursor:pointer}.btn:hover{transform:translateY(-2px)}.btn-primary{background:linear-gradient(135deg,var(--accent),#8ce7ff);color:#08263a;box-shadow:0 12px 40px rgba(99,210,255,.18)}.btn-secondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text)}.hero-side{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;min-height:100%}.hero-side-top{display:grid;gap:14px}.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}.side-list{display:grid;gap:12px}.side-item{padding:14px 14px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.side-item strong{display:block;margin-bottom:6px}.side-note{margin-top:18px;padding:16px;border-radius:18px;background:linear-gradient(180deg,rgba(99,210,255,.08),rgba(124,135,255,.06));border:1px solid rgba(99,210,255,.14);color:#dcedff}
+    .section{margin-top:38px}.section-title{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}.stat{padding:18px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08)}.stat strong{display:block;font-size:24px;margin-bottom:6px}.stat span{color:var(--muted)}.panel{background:linear-gradient(180deg,var(--panel-strong),var(--panel));border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:22px;transition:.24s ease}.panel:hover{transform:translateY(-3px);border-color:rgba(99,210,255,.18);box-shadow:0 20px 50px rgba(0,0,0,.16)}.panel p,.panel li,.panel span{margin:0;color:var(--muted);line-height:1.75}.panel ul{margin:0;padding-left:18px}.panel-cta{margin-top:16px}.panel-price{margin-top:12px;padding:12px 14px;border-radius:14px;background:rgba(99,210,255,.08);border:1px solid rgba(99,210,255,.14);font-weight:700;color:#dbeafe}.panel-note{margin-top:10px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.service-card h3,.issue-card h3{display:flex;align-items:center;gap:10px}.service-icon,.issue-icon{width:36px;height:36px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:rgba(99,210,255,.12);border:1px solid rgba(99,210,255,.16);color:var(--accent)}
+    .trust-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}.trust-item{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:#d8e5f6}
+    .footer{margin-top:10px;padding:24px 40px 32px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:#94a3b8;font-size:14px}.rtl{text-align:right;direction:rtl}.rtl .nav,.rtl .nav-right,.rtl .nav-links,.rtl .actions{direction:rtl}.rtl .panel ul{padding-right:18px;padding-left:0}
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.trust-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:860px){.grid,.grid-2,.stats,.trust-strip{grid-template-columns:1fr}.content,.footer{padding-left:24px;padding-right:24px}.nav{padding:16px 20px;align-items:flex-start;flex-direction:column}.nav-right{width:100%}h1{font-size:clamp(36px,11vw,58px)}}
+    @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
   <div class="page">
     <main class="shell">
       <nav class="nav">
-        <div class="brand" data-i18n-brand>🚀 Full-stack Developer</div>
+        <div class="brand" data-i18n-brand><span class="brand-dot"></span><span>Full-stack Developer</span></div>
         <div class="nav-right">
           <div class="nav-links">
             <a class="nav-link active" href="/" data-nav-home>Home</a>
@@ -60,36 +78,144 @@
       </nav>
 
       <section class="content lang-content active" data-lang-content="en" id="home">
-        <div class="badge">⚡ Websites • Landing pages • Integrations</div>
-        <h1>Build faster. Automate smarter. Launch landing pages that convert. 💼</h1>
-        <p class="lead">I help businesses launch websites and landing pages, improve existing systems, connect services, automate workflows, and solve technical bottlenecks with practical full-stack development.</p>
-        <div class="actions"><a class="btn btn-primary" href="/order.html">📩 Order service</a><a class="btn btn-secondary" href="/services.html">🚀 View services</a></div>
-        <div class="stats"><div class="stat"><strong>⚙️ Practical solutions</strong><span>Business-focused development</span></div><div class="stat"><strong>⏱️ Faster delivery</strong><span>Clear scope and quick execution</span></div><div class="stat"><strong>🛠️ Ongoing support</strong><span>From idea to maintenance</span></div></div>
-        <section class="section"><p class="section-title">Availability</p><h2>Limited slots for new work</h2><div class="grid section"><article class="panel"><h3>🔥 Limited active slots</h3><p>I usually take only a small number of parallel projects.</p></article><article class="panel"><h3>⏱️ Fast initial response</h3><p>Most requests get a first response within a few hours.</p></article><article class="panel"><h3>📅 Better to book early</h3><p>If the task is tied to advertising or launch timing, it is better not to wait.</p></article></div></section>
-        <section class="section"><p class="section-title">Landing page offer</p><div class="grid-2"><article class="panel"><h3>🚀 Landing page</h3><p>A clean, modern landing page for a service, product, campaign or lead capture — with a realistic budget and scope.</p><div class="panel-price">Landing page from 1,800 ₪</div><div class="panel-price">Most business landing pages: 2,500–3,500 ₪</div><p style="margin-top:12px">Final price depends on number of sections, languages, forms, integrations and design complexity.</p><div class="panel-note"><strong>Typical timing</strong><ul><li>Simple landing page: 2–4 days</li><li>Extended business landing page: 4–7 days</li></ul></div><div class="panel-note"><strong>What usually increases price</strong><ul><li>Extra languages</li><li>Custom animations or unusual sections</li><li>Advanced integrations or tracking</li><li>Large copy/design revision cycles</li></ul></div><div class="panel-cta"><a class="btn btn-primary" href="/order.html">📩 Order service</a></div></article><article class="panel"><h3>What is usually included</h3><ul><li>One responsive landing page</li><li>Clear structure and CTA sections</li><li>Contact form / lead form</li><li>Basic performance-focused setup</li><li>Up to 1 language in the base version</li></ul></article></div></section>
-        <section class="section"><p class="section-title">Common requests</p><h2>What clients usually need help with</h2><div class="grid section"><article class="panel"><h3>🚨 Broken integrations</h3><p>When data stops syncing, forms fail, or a process breaks in production.</p></article><article class="panel"><h3>⚡ Fast landing page launch</h3><p>When a campaign needs a clear, working page without overcomplication.</p></article><article class="panel"><h3>🧩 Messy existing code</h3><p>When a project already exists, but nobody wants to touch it.</p></article><article class="panel"><h3>🔄 Automation of routine work</h3><p>When repetitive manual steps should become a stable automated flow.</p></article><article class="panel"><h3>🐢 Slow or unstable website</h3><p>When the site feels heavy, buggy, or unreliable.</p></article><article class="panel"><h3>📦 Business system improvements</h3><p>When internal tools, CRM-like flows, or admin logic need upgrades.</p></article></div></section>
+        <div class="hero">
+          <div class="hero-main">
+            <div class="badge">Technical delivery for business-facing systems</div>
+            <div class="hero-copy">
+              <h1>Build faster. Automate smarter. Launch with less friction.</h1>
+              <p class="lead">I help businesses ship websites, landing pages, integrations, automation flows, and practical improvements to existing systems — with clear execution, cleaner logic, and less operational chaos.</p>
+            </div>
+            <div class="hero-highlight">
+              <span class="mini-pill">PHP / Laravel</span>
+              <span class="mini-pill">WordPress / WooCommerce</span>
+              <span class="mini-pill">Vue / React</span>
+              <span class="mini-pill">Integrations / Automation</span>
+            </div>
+            <div class="actions"><a class="btn btn-primary" href="/order.html">Start a project</a><a class="btn btn-secondary" href="/services.html">See services</a></div>
+            <div class="trust-strip">
+              <div class="trust-item">Practical scoping</div>
+              <div class="trust-item">Fast initial direction</div>
+              <div class="trust-item">Production-minded work</div>
+              <div class="trust-item">Long-term maintainability</div>
+            </div>
+          </div>
+          <aside class="hero-side">
+            <div class="hero-side-top">
+              <div>
+                <div class="eyebrow">Best fit</div>
+                <h2>For teams that need a strong technical pair of hands</h2>
+              </div>
+              <div class="side-list">
+                <div class="side-item"><strong>Fast launches</strong><span>Landing pages, business sites, and campaign pages that need to go live without drama.</span></div>
+                <div class="side-item"><strong>System upgrades</strong><span>Improving existing products, admin tools, flows, and internal logic.</span></div>
+                <div class="side-item"><strong>Integrations</strong><span>APIs, webhooks, automation, documents, and cross-system data movement.</span></div>
+              </div>
+            </div>
+            <div class="side-note">Clear delivery, realistic scope, and work that stays understandable after launch.</div>
+          </aside>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>⚙️ Business-first</strong><span>Solutions shaped around real workflow needs</span></div>
+          <div class="stat"><strong>⏱️ Faster execution</strong><span>Less overengineering, more forward motion</span></div>
+          <div class="stat"><strong>🛠️ Reliable support</strong><span>From launch work to fixes and improvement cycles</span></div>
+        </div>
+        <section class="section"><p class="section-title">Availability</p><h2>Limited slots for new work</h2><div class="grid section"><article class="panel"><h3><span class="service-icon">🔥</span>Limited active slots</h3><p>I usually take only a small number of parallel projects, so each task gets enough focus.</p></article><article class="panel"><h3><span class="service-icon">⏱️</span>Fast first response</h3><p>Most inbound requests get a first direction quickly, especially when the scope is already clear.</p></article><article class="panel"><h3><span class="service-icon">📅</span>Better to book early</h3><p>If the work is tied to a launch, campaign, or release window, early coordination helps a lot.</p></article></div></section>
+        <section class="section"><p class="section-title">Landing page offer</p><div class="grid-2"><article class="panel"><h3><span class="service-icon">🚀</span>Landing page</h3><p>A clean, modern landing page for a service, product, campaign or lead capture — with realistic scope, sharp structure, and business-focused messaging.</p><div class="panel-price">Landing page from 1,800 ₪</div><div class="panel-price">Most business landing pages: 2,500–3,500 ₪</div><p style="margin-top:12px">Final price depends on number of sections, languages, forms, integrations and design complexity.</p><div class="panel-note"><strong>Typical timing</strong><ul><li>Simple landing page: 2–4 days</li><li>Extended business landing page: 4–7 days</li></ul></div><div class="panel-note"><strong>What usually increases price</strong><ul><li>Extra languages</li><li>Custom animations or unusual sections</li><li>Advanced integrations or tracking</li><li>Large copy/design revision cycles</li></ul></div><div class="panel-cta"><a class="btn btn-primary" href="/order.html">Order service</a></div></article><article class="panel"><h3><span class="service-icon">✓</span>What is usually included</h3><ul><li>One responsive landing page</li><li>Clear structure and CTA sections</li><li>Contact form / lead form</li><li>Basic performance-focused setup</li><li>Up to 1 language in the base version</li></ul></article></div></section>
+        <section class="section"><p class="section-title">Common requests</p><h2>What clients usually need help with</h2><div class="grid section"><article class="panel issue-card"><h3><span class="issue-icon">🔌</span>Broken integrations</h3><p>When data stops syncing, forms fail, or a process breaks in production.</p></article><article class="panel issue-card"><h3><span class="issue-icon">📣</span>Fast launch pressure</h3><p>When a campaign needs a clear, working page without overcomplication.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🧩</span>Messy existing code</h3><p>When a project already exists, but nobody wants to touch it.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🔄</span>Manual routine work</h3><p>When repetitive manual steps should become a stable automated flow.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🐢</span>Slow or unstable systems</h3><p>When the site feels heavy, buggy, or unreliable.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🗂️</span>Internal tooling upgrades</h3><p>When admin tools, CRM-like flows, or internal logic need improvement.</p></article></div></section>
       </section>
 
       <section class="content lang-content" data-lang-content="ru" id="home-ru">
-        <div class="badge">⚡ Сайты • Лендинги • Интеграции</div>
-        <h1>Запускаю быстрее. Автоматизирую умнее. Делаю лендинги, которые приводят заявки. 💼</h1>
-        <p class="lead">Помогаю бизнесу запускать сайты и лендинги, улучшать существующие системы, связывать сервисы, автоматизировать процессы и решать технические проблемы через практичную full-stack разработку.</p>
-        <div class="actions"><a class="btn btn-primary" href="/order.html">📩 Заказать услугу</a><a class="btn btn-secondary" href="/services.html">🚀 Смотреть услуги</a></div>
-        <div class="stats"><div class="stat"><strong>⚙️ Практичный подход</strong><span>Разработка под задачи бизнеса</span></div><div class="stat"><strong>⏱️ Быстрее к результату</strong><span>Понятный объём и быстрая реализация</span></div><div class="stat"><strong>🛠️ Поддержка</strong><span>От идеи до сопровождения</span></div></div>
-        <section class="section"><p class="section-title">Доступность</p><h2>Беру ограниченное количество задач</h2><div class="grid section"><article class="panel"><h3>🔥 Ограниченные слоты</h3><p>Обычно веду только небольшое количество проектов одновременно.</p></article><article class="panel"><h3>⏱️ Быстрый первый ответ</h3><p>На большинство обращений отвечаю в течение нескольких часов.</p></article><article class="panel"><h3>📅 Лучше бронировать заранее</h3><p>Если задача связана с рекламой или запуском, лучше не откладывать.</p></article></div></section>
-        <section class="section"><p class="section-title">Лендинг-страница</p><div class="grid-2"><article class="panel"><h3>🚀 Лендинг-страница</h3><p>Чистый, современный лендинг для услуги, товара, рекламы или сбора заявок — с понятным объёмом и адекватной ценой.</p><div class="panel-price">Лендинг — от 1,800 ₪</div><div class="panel-price">Большинство нормальных лендингов для бизнеса: 2,500–3,500 ₪</div><p style="margin-top:12px">Итоговая цена зависит от количества блоков, языков, форм, интеграций и сложности дизайна.</p><div class="panel-note"><strong>Обычно по срокам</strong><ul><li>Простой лендинг: 2–4 дня</li><li>Расширенный бизнес-лендинг: 4–7 дней</li></ul></div><div class="panel-note"><strong>Что обычно увеличивает цену</strong><ul><li>Дополнительные языки</li><li>Нестандартные анимации и сложные блоки</li><li>Интеграции и продвинутая аналитика</li><li>Большой цикл правок по тексту и структуре</li></ul></div><div class="panel-cta"><a class="btn btn-primary" href="/order.html">📩 Заказать услугу</a></div></article><article class="panel"><h3>Что обычно входит</h3><ul><li>Одна адаптивная лендинг-страница</li><li>Понятная структура и CTA-блоки</li><li>Форма обращения / сбора заявок</li><li>Базовая настройка с упором на скорость</li><li>До 1 языка в базовой версии</li></ul></article></div></section>
-        <section class="section"><p class="section-title">С какими задачами приходят</p><h2>Частые запросы, с которыми ко мне обращаются</h2><div class="grid section"><article class="panel"><h3>🚨 Ломаются интеграции</h3><p>Когда данные перестают ходить, формы не работают или процесс ломается в проде.</p></article><article class="panel"><h3>⚡ Нужно быстро запустить лендинг</h3><p>Когда под рекламу нужна понятная и рабочая страница без лишней сложности.</p></article><article class="panel"><h3>🧩 Сложный чужой код</h3><p>Когда проект уже есть, но никто не хочет в него лезть.</p></article><article class="panel"><h3>🔄 Нужно автоматизировать рутину</h3><p>Когда повторяющиеся ручные действия пора превратить в стабильный процесс.</p></article><article class="panel"><h3>🐢 Сайт тормозит или работает нестабильно</h3><p>Когда сайт тяжёлый, с багами или просто ведёт себя ненадёжно.</p></article><article class="panel"><h3>📦 Нужны доработки внутренней системы</h3><p>Когда нужно улучшить CRM-подобную логику, кабинет или админку.</p></article></div></section>
+        <div class="hero">
+          <div class="hero-main">
+            <div class="badge">Техническая реализация для бизнес-систем</div>
+            <div class="hero-copy">
+              <h1>Запускать быстрее. Автоматизировать умнее. Делать без лишнего хаоса.</h1>
+              <p class="lead">Помогаю бизнесу запускать сайты, лендинги, интеграции, автоматизацию и практичные улучшения существующих систем — с понятной реализацией, более чистой логикой и меньшим количеством ручной боли.</p>
+            </div>
+            <div class="hero-highlight">
+              <span class="mini-pill">PHP / Laravel</span>
+              <span class="mini-pill">WordPress / WooCommerce</span>
+              <span class="mini-pill">Vue / React</span>
+              <span class="mini-pill">Интеграции / Автоматизация</span>
+            </div>
+            <div class="actions"><a class="btn btn-primary" href="/order.html">Начать проект</a><a class="btn btn-secondary" href="/services.html">Смотреть услуги</a></div>
+            <div class="trust-strip">
+              <div class="trust-item">Практичный scope</div>
+              <div class="trust-item">Быстрый первый ориентир</div>
+              <div class="trust-item">Мышление под production</div>
+              <div class="trust-item">Поддерживаемость дальше</div>
+            </div>
+          </div>
+          <aside class="hero-side">
+            <div class="hero-side-top">
+              <div>
+                <div class="eyebrow">Лучше всего подходит</div>
+                <h2>Для команд, которым нужны сильные технические руки</h2>
+              </div>
+              <div class="side-list">
+                <div class="side-item"><strong>Быстрые запуски</strong><span>Лендинги, бизнес-сайты и страницы под кампании, которые нужно вывести без драмы.</span></div>
+                <div class="side-item"><strong>Доработка систем</strong><span>Улучшение существующих продуктов, админок, flow и внутренней логики.</span></div>
+                <div class="side-item"><strong>Интеграции</strong><span>API, webhooks, автоматизация, документы и движение данных между системами.</span></div>
+              </div>
+            </div>
+            <div class="side-note">Понятная реализация, реалистичный scope и результат, который остаётся читаемым после запуска.</div>
+          </aside>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>⚙️ Под задачи бизнеса</strong><span>Решения строятся вокруг реальных workflow</span></div>
+          <div class="stat"><strong>⏱️ Быстрее к результату</strong><span>Меньше лишнего, больше движения вперёд</span></div>
+          <div class="stat"><strong>🛠️ Надёжная поддержка</strong><span>От запуска до исправлений и цикла улучшений</span></div>
+        </div>
+        <section class="section"><p class="section-title">Доступность</p><h2>Беру ограниченное количество задач</h2><div class="grid section"><article class="panel"><h3><span class="service-icon">🔥</span>Ограниченные слоты</h3><p>Обычно веду только небольшое количество проектов одновременно, чтобы было достаточно фокуса.</p></article><article class="panel"><h3><span class="service-icon">⏱️</span>Быстрый первый ответ</h3><p>Большинство запросов получают первый ориентир быстро, особенно если задача уже описана нормально.</p></article><article class="panel"><h3><span class="service-icon">📅</span>Лучше бронировать заранее</h3><p>Если работа завязана на запуск, рекламу или дедлайн, лучше синхронизироваться заранее.</p></article></div></section>
+        <section class="section"><p class="section-title">Лендинг-страница</p><div class="grid-2"><article class="panel"><h3><span class="service-icon">🚀</span>Лендинг-страница</h3><p>Чистый и современный лендинг для услуги, товара, кампании или сбора заявок — с понятной структурой, нормальным объёмом и акцентом на результат.</p><div class="panel-price">Лендинг — от 1,800 ₪</div><div class="panel-price">Большинство нормальных лендингов для бизнеса: 2,500–3,500 ₪</div><p style="margin-top:12px">Итоговая цена зависит от количества блоков, языков, форм, интеграций и сложности дизайна.</p><div class="panel-note"><strong>Обычно по срокам</strong><ul><li>Простой лендинг: 2–4 дня</li><li>Расширенный бизнес-лендинг: 4–7 дней</li></ul></div><div class="panel-note"><strong>Что обычно увеличивает цену</strong><ul><li>Дополнительные языки</li><li>Нестандартные анимации и сложные блоки</li><li>Интеграции и продвинутая аналитика</li><li>Большой цикл правок по тексту и структуре</li></ul></div><div class="panel-cta"><a class="btn btn-primary" href="/order.html">Заказать услугу</a></div></article><article class="panel"><h3><span class="service-icon">✓</span>Что обычно входит</h3><ul><li>Одна адаптивная лендинг-страница</li><li>Понятная структура и CTA-блоки</li><li>Форма обращения / сбора заявок</li><li>Базовая настройка с упором на скорость</li><li>До 1 языка в базовой версии</li></ul></article></div></section>
+        <section class="section"><p class="section-title">Частые запросы</p><h2>С чем обычно приходят</h2><div class="grid section"><article class="panel issue-card"><h3><span class="issue-icon">🔌</span>Ломаются интеграции</h3><p>Когда данные перестают ходить, формы не работают или процесс ломается в проде.</p></article><article class="panel issue-card"><h3><span class="issue-icon">📣</span>Нужно быстро запускаться</h3><p>Когда под рекламу нужна понятная и рабочая страница без лишней сложности.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🧩</span>Сложный существующий код</h3><p>Когда проект уже есть, но никто не хочет в него лезть.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🔄</span>Ручная рутина</h3><p>Когда повторяющиеся действия пора превратить в стабильный процесс.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🐢</span>Медленные или нестабильные системы</h3><p>Когда сайт тяжёлый, багованный или просто ведёт себя ненадёжно.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🗂️</span>Доработка внутренних инструментов</h3><p>Когда нужно улучшить админку, flow, CRM-подобную логику или внутренние процессы.</p></article></div></section>
       </section>
 
       <section class="content lang-content rtl" data-lang-content="he" id="home-he">
-        <div class="badge">⚡ אתרים • דפי נחיתה • אינטגרציות</div>
-        <h1>בונים מהר יותר. מאוטומטים חכם יותר. מקימים דפי נחיתה שמביאים פניות. 💼</h1>
-        <p class="lead">אני עוזר לעסקים להקים אתרים ודפי נחיתה, לשפר מערכות קיימות, לחבר בין שירותים, לאוטומט תהליכים ולפתור צווארי בקבוק טכניים בעזרת פיתוח full-stack פרקטי.</p>
-        <div class="actions"><a class="btn btn-primary" href="/order.html">📩 להזמין שירות</a><a class="btn btn-secondary" href="/services.html">🚀 לצפייה בשירותים</a></div>
-        <div class="stats"><div class="stat"><strong>⚙️ פתרונות פרקטיים</strong><span>פיתוח שמכוון לתוצאה עסקית</span></div><div class="stat"><strong>⏱️ התקדמות מהירה יותר</strong><span>היקף ברור וביצוע מהיר</span></div><div class="stat"><strong>🛠️ ליווי ותמיכה</strong><span>מרעיון ועד תחזוקה</span></div></div>
-        <section class="section"><p class="section-title">זמינות</p><h2>אני לוקח מספר מוגבל של פרויקטים</h2><div class="grid section"><article class="panel"><h3>🔥 סלוטים מוגבלים</h3><p>בדרך כלל אני עובד רק על מספר קטן של פרויקטים במקביל.</p></article><article class="panel"><h3>⏱️ תגובה ראשונה מהירה</h3><p>לרוב הפניות אני חוזר תוך כמה שעות.</p></article><article class="panel"><h3>📅 עדיף לסגור מראש</h3><p>אם המשימה קשורה לקמפיין או להשקה, עדיף לא לחכות.</p></article></div></section>
-        <section class="section"><p class="section-title">הצעת דף נחיתה</p><div class="grid-2"><article class="panel"><h3>🚀 דף נחיתה</h3><p>דף נחיתה נקי ומודרני לשירות, מוצר, קמפיין או איסוף לידים — עם היקף ברור ומחיר הגיוני.</p><div class="panel-price">דף נחיתה — החל מ־1,800 ₪</div><div class="panel-price">רוב דפי הנחיתה העסקיים ברמה טובה: 2,500–3,500 ₪</div><p style="margin-top:12px">המחיר הסופי תלוי בכמות הבלוקים, שפות, טפסים, אינטגרציות ומורכבות העיצוב.</p><div class="panel-note"><strong>בדרך כלל בזמנים</strong><ul><li>דף נחיתה פשוט: 2–4 ימים</li><li>דף נחיתה עסקי מורחב: 4–7 ימים</li></ul></div><div class="panel-note"><strong>מה בדרך כלל מעלה את המחיר</strong><ul><li>שפות נוספות</li><li>אנימציות לא שגרתיות או בלוקים מיוחדים</li><li>אינטגרציות ומדידה מתקדמת</li><li>סבבי שינויים גדולים בטקסט ובמבנה</li></ul></div><div class="panel-cta"><a class="btn btn-primary" href="/order.html">📩 להזמין שירות</a></div></article><article class="panel"><h3>מה בדרך כלל כלול</h3><ul><li>דף נחיתה רספונסיבי אחד</li><li>מבנה ברור עם אזורי CTA</li><li>טופס יצירת קשר / איסוף לידים</li><li>הקמה בסיסית עם דגש על מהירות</li><li>עד שפה אחת בגרסת הבסיס</li></ul></article></div></section>
-        <section class="section"><p class="section-title">עם אילו בעיות פונים אליי</p><h2>בקשות נפוצות שאני מטפל בהן</h2><div class="grid section"><article class="panel"><h3>🚨 אינטגרציות שנשברו</h3><p>כשמידע מפסיק לעבור, טפסים מפסיקים לעבוד או תהליך נשבר בפרודקשן.</p></article><article class="panel"><h3>⚡ צריך להרים דף נחיתה מהר</h3><p>כשצריך עמוד ברור ועובד לקמפיין בלי להסתבך.</p></article><article class="panel"><h3>🧩 קוד קיים שאף אחד לא רוצה לגעת בו</h3><p>כשיש פרויקט קיים אבל קשה להמשיך ממנו.</p></article><article class="panel"><h3>🔄 צריך לאוטומט עבודה שחוזרת על עצמה</h3><p>כשיש פעולות ידניות קבועות שכדאי להפוך לתהליך מסודר.</p></article><article class="panel"><h3>🐢 אתר איטי או לא יציב</h3><p>כשהאתר כבד, מלא באגים או פשוט לא אמין.</p></article><article class="panel"><h3>📦 צריך לשפר מערכת פנימית</h3><p>כשצריך לשדרג לוגיקה של אדמין, אזור אישי או תהליך עסקי.</p></article></div></section>
+        <div class="hero">
+          <div class="hero-main">
+            <div class="badge">ביצוע טכני למערכות עסקיות</div>
+            <div class="hero-copy">
+              <h1>לבנות מהר יותר. לאוטומט חכם יותר. להתקדם עם פחות חיכוך.</h1>
+              <p class="lead">אני עוזר לעסקים להקים אתרים, דפי נחיתה, אינטגרציות, אוטומציה ושיפורים פרקטיים במערכות קיימות — עם ביצוע ברור יותר, לוגיקה נקייה יותר ופחות כאב תפעולי.</p>
+            </div>
+            <div class="hero-highlight">
+              <span class="mini-pill">PHP / Laravel</span>
+              <span class="mini-pill">WordPress / WooCommerce</span>
+              <span class="mini-pill">Vue / React</span>
+              <span class="mini-pill">אינטגרציות / אוטומציה</span>
+            </div>
+            <div class="actions"><a class="btn btn-primary" href="/order.html">להתחיל פרויקט</a><a class="btn btn-secondary" href="/services.html">לצפייה בשירותים</a></div>
+            <div class="trust-strip">
+              <div class="trust-item">סקופ פרקטי</div>
+              <div class="trust-item">כיוון ראשוני מהיר</div>
+              <div class="trust-item">חשיבה לפרודקשן</div>
+              <div class="trust-item">נוחות תחזוקה בהמשך</div>
+            </div>
+          </div>
+          <aside class="hero-side">
+            <div class="hero-side-top">
+              <div>
+                <div class="eyebrow">הכי מתאים</div>
+                <h2>לצוותים שצריכים ידיים טכניות חזקות</h2>
+              </div>
+              <div class="side-list">
+                <div class="side-item"><strong>השקות מהירות</strong><span>דפי נחיתה, אתרים עסקיים ועמודים לקמפיינים שצריכים לעלות בלי דרמה.</span></div>
+                <div class="side-item"><strong>שדרוג מערכות</strong><span>שיפור מוצרים קיימים, פאנלים לניהול, תהליכים ולוגיקה פנימית.</span></div>
+                <div class="side-item"><strong>אינטגרציות</strong><span>API, webhooks, אוטומציה, מסמכים ותנועה של מידע בין מערכות.</span></div>
+              </div>
+            </div>
+            <div class="side-note">ביצוע ברור, סקופ ריאלי ותוצאה שנשארת מובנת גם אחרי העלייה לאוויר.</div>
+          </aside>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>⚙️ פתרונות לעסק</strong><span>פתרונות שבנויים סביב workflow אמיתי</span></div>
+          <div class="stat"><strong>⏱️ התקדמות מהירה יותר</strong><span>פחות מיותר, יותר תנועה קדימה</span></div>
+          <div class="stat"><strong>🛠️ תמיכה אמינה</strong><span>מהשקה ועד תיקונים ושיפורים</span></div>
+        </div>
+        <section class="section"><p class="section-title">זמינות</p><h2>מספר מוגבל של פרויקטים פעילים</h2><div class="grid section"><article class="panel"><h3><span class="service-icon">🔥</span>סלוטים מוגבלים</h3><p>בדרך כלל אני עובד על מספר קטן יחסית של פרויקטים במקביל כדי לשמור על פוקוס.</p></article><article class="panel"><h3><span class="service-icon">⏱️</span>תגובה ראשונה מהירה</h3><p>רוב הפניות מקבלות כיוון ראשוני מהר, במיוחד כשהמשימה כבר מנוסחת טוב.</p></article><article class="panel"><h3><span class="service-icon">📅</span>עדיף לתאם מוקדם</h3><p>אם העבודה קשורה להשקה, קמפיין או חלון זמן חשוב, עדיף לסגור מראש.</p></article></div></section>
+        <section class="section"><p class="section-title">דף נחיתה</p><div class="grid-2"><article class="panel"><h3><span class="service-icon">🚀</span>דף נחיתה</h3><p>דף נחיתה נקי ומודרני לשירות, מוצר, קמפיין או איסוף לידים — עם מבנה ברור, סקופ ריאלי ודגש על תוצאה עסקית.</p><div class="panel-price">דף נחיתה — החל מ־1,800 ₪</div><div class="panel-price">רוב דפי הנחיתה העסקיים ברמה טובה: 2,500–3,500 ₪</div><p style="margin-top:12px">המחיר הסופי תלוי בכמות הבלוקים, שפות, טפסים, אינטגרציות ומורכבות העיצוב.</p><div class="panel-note"><strong>בדרך כלל בזמנים</strong><ul><li>דף נחיתה פשוט: 2–4 ימים</li><li>דף נחיתה עסקי מורחב: 4–7 ימים</li></ul></div><div class="panel-note"><strong>מה בדרך כלל מעלה את המחיר</strong><ul><li>שפות נוספות</li><li>אנימציות לא שגרתיות או בלוקים מיוחדים</li><li>אינטגרציות ומדידה מתקדמת</li><li>סבבי שינויים גדולים בטקסט ובמבנה</li></ul></div><div class="panel-cta"><a class="btn btn-primary" href="/order.html">להזמין שירות</a></div></article><article class="panel"><h3><span class="service-icon">✓</span>מה בדרך כלל כלול</h3><ul><li>דף נחיתה רספונסיבי אחד</li><li>מבנה ברור עם אזורי CTA</li><li>טופס יצירת קשר / איסוף לידים</li><li>הקמה בסיסית עם דגש על מהירות</li><li>עד שפה אחת בגרסת הבסיס</li></ul></article></div></section>
+        <section class="section"><p class="section-title">בקשות נפוצות</p><h2>עם מה בדרך כלל פונים אליי</h2><div class="grid section"><article class="panel issue-card"><h3><span class="issue-icon">🔌</span>אינטגרציות שנשברות</h3><p>כשמידע מפסיק לעבור, טפסים מפסיקים לעבוד או תהליך נשבר בפרודקשן.</p></article><article class="panel issue-card"><h3><span class="issue-icon">📣</span>לחץ לעלות מהר</h3><p>כשצריך עמוד ברור ועובד לקמפיין בלי להסתבך.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🧩</span>קוד קיים שקשה לגעת בו</h3><p>כשיש פרויקט קיים אבל אף אחד לא רוצה באמת להתעסק איתו.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🔄</span>רוטינה ידנית</h3><p>כשצריך להפוך פעולות חוזרות לתהליך יציב ומסודר.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🐢</span>מערכת איטית או לא יציבה</h3><p>כשהאתר כבד, מלא באגים או פשוט לא אמין.</p></article><article class="panel issue-card"><h3><span class="issue-icon">🗂️</span>שדרוג כלים פנימיים</h3><p>כשצריך לשפר אדמין, לוגיקה פנימית, flow או תהליך עסקי.</p></article></div></section>
       </section>
 
       <footer class="footer">
@@ -101,46 +227,20 @@
   <script>
     (function(){
       const texts={
-        en:{title:'Full-stack Developer | Websites, Landing Pages, Integrations',desc:'Full-stack developer in Israel: websites, landing pages, integrations, automation, audits, and technical support for businesses.',brand:'🚀 Full-stack Developer',home:'Home',services:'Services',about:'About',contact:'Contact',order:'Order'},
-        ru:{title:'Full-stack разработчик | Сайты, лендинги, интеграции',desc:'Разработка сайтов и лендингов, интеграции, автоматизация и техническая поддержка для бизнеса.',brand:'🚀 Full-stack разработчик',home:'Главная',services:'Услуги',about:'Обо мне',contact:'Контакты',order:'Заказать'},
-        he:{title:'מפתח Full-stack | אתרים, דפי נחיתה, אינטגרציות',desc:'פיתוח אתרים ודפי נחיתה, אינטגרציות, אוטומציה ותמיכה טכנית לעסקים.',brand:'🚀 מפתח Full-stack',home:'ראשי',services:'שירותים',about:'עליי',contact:'יצירת קשר',order:'הזמנה'}};
+        en:{title:'Full-stack Developer | Websites, Landing Pages, Integrations',desc:'Full-stack developer in Israel: websites, landing pages, integrations, automation, audits, and technical support for businesses.',brand:'Full-stack Developer',home:'Home',services:'Services',about:'About',contact:'Contact',order:'Order'},
+        ru:{title:'Full-stack разработчик | Сайты, лендинги, интеграции',desc:'Разработка сайтов и лендингов, интеграции, автоматизация и техническая поддержка для бизнеса.',brand:'Full-stack разработчик',home:'Главная',services:'Услуги',about:'Обо мне',contact:'Контакты',order:'Заказать'},
+        he:{title:'מפתח Full-stack | אתרים, דפי נחיתה, אינטגרציות',desc:'פיתוח אתרים ודפי נחיתה, אינטגרציות, אוטומציה ותמיכה טכנית לעסקים.',brand:'מפתח Full-stack',home:'ראשי',services:'שירותים',about:'עליי',contact:'יצירת קשר',order:'הזמנה'}};
       const buttons=[...document.querySelectorAll('.lang-btn')];
       const sections=[...document.querySelectorAll('[data-lang-content]')];
-      const brand=document.querySelector('[data-i18n-brand]');
+      const brand=document.querySelector('[data-i18n-brand] span:last-child');
       const navHome=document.querySelector('[data-nav-home]');
       const navServices=document.querySelector('[data-nav-services]');
       const navAbout=document.querySelector('[data-nav-about]');
       const navContact=document.querySelector('[data-nav-contact]');
       const navOrder=document.querySelector('[data-nav-order]');
       const desc=document.querySelector('meta[name="description"]');
-      function updateLinks(lang){
-        document.querySelectorAll('a[href^="/"]').forEach(a=>{
-          const u=new URL(a.getAttribute('href'),location.origin);
-          u.searchParams.set('lang',lang);
-          a.setAttribute('href',u.pathname+u.search);
-        });
-      }
-      function setLang(lang){
-        sections.forEach(s=>s.classList.toggle('active',s.dataset.langContent===lang));
-        buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
-        document.documentElement.lang=lang;
-        document.documentElement.dir=lang==='he'?'rtl':'ltr';
-        document.title=texts[lang].title;
-        desc.setAttribute('content',texts[lang].desc);
-        brand.textContent=texts[lang].brand;
-        navHome.textContent=texts[lang].home;
-        navServices.textContent=texts[lang].services;
-        navAbout.textContent=texts[lang].about;
-        navContact.textContent=texts[lang].contact;
-        navOrder.textContent=texts[lang].order;
-        updateLinks(lang);
-        const url=new URL(window.location.href);
-        url.searchParams.set('lang',lang);
-        history.replaceState({},'',url);
-      }
-      buttons.forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));
-      const initial=new URL(window.location.href).searchParams.get('lang');
-      setLang(['en','ru','he'].includes(initial)?initial:'en');
+      function updateLinks(lang){document.querySelectorAll('a[href^="/"]').forEach(a=>{const u=new URL(a.getAttribute('href'),location.origin);u.searchParams.set('lang',lang);a.setAttribute('href',u.pathname+u.search);});}
+      function setLang(lang){sections.forEach(s=>s.classList.toggle('active',s.dataset.langContent===lang));buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));document.documentElement.lang=lang;document.documentElement.dir=lang==='he'?'rtl':'ltr';document.title=texts[lang].title;desc.setAttribute('content',texts[lang].desc);brand.textContent=texts[lang].brand;navHome.textContent=texts[lang].home;navServices.textContent=texts[lang].services;navAbout.textContent=texts[lang].about;navContact.textContent=texts[lang].contact;navOrder.textContent=texts[lang].order;updateLinks(lang);const url=new URL(window.location.href);url.searchParams.set('lang',lang);history.replaceState({},'',url);}buttons.forEach(btn=>btn.addEventListener('click',()=>setLang(btn.dataset.lang)));const initial=new URL(window.location.href).searchParams.get('lang');setLang(['en','ru','he'].includes(initial)?initial:'en');
     })();
   </script>
 </body>
