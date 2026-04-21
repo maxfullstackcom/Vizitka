@@ -62,8 +62,9 @@
         if (!form.contact.trim() || !form.message.trim()) { setStatus({ type:'err', text:'Заполни хотя бы контакт и сообщение.' }); return; }
         setLoading(true);
         try {
-          const response = await fetch(GOOGLE_SCRIPT_WEB_APP_URL, {
+          await fetch(GOOGLE_SCRIPT_WEB_APP_URL, {
             method:'POST',
+            mode:'no-cors',
             headers:{ 'Content-Type':'text/plain;charset=utf-8' },
             body: JSON.stringify({
               name: form.name.trim(),
@@ -76,12 +77,10 @@
               hp_field: form.website.trim()
             })
           });
-          const data = await response.json().catch(() => ({}));
-          if (!response.ok || !data.ok) throw new Error(data.error || 'Apps Script error');
-          setStatus({ type:'ok', text:'Сообщение отправлено. Скоро свяжусь с тобой.' });
+          setStatus({ type:'ok', text:'Сообщение отправлено. Если хочешь, проверь через пару секунд, появилась ли строка в Google Sheets.' });
           setForm({ name:'', contact:'', message:'', company:'', website:'' });
         } catch (err) {
-          setStatus({ type:'err', text:'Не удалось отправить сообщение. Проверь URL Google Apps Script и права доступа.' });
+          setStatus({ type:'err', text:'Не удалось отправить сообщение. Проверь публикацию Google Apps Script и доступ Anyone.' });
         } finally { setLoading(false); }
       }
       return <form className="form" onSubmit={onSubmit}>
