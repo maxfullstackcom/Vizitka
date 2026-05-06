@@ -7,4 +7,4 @@ binding = "CONTACT_KV"
 id = "PUT_YOUR_KV_NAMESPACE_ID_HERE"
 
 [vars]
-ALLOWED_ORIGIN = "https://maxfullstackcom.github.io"
+ALLOWED_ORIGIN = "https://maxfullstack.com"

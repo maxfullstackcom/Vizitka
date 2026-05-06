@@ -1,7 +1,7 @@
 # Telegram contact form setup
 
 ## Что уже есть
-- `index.html` — форма обращения на сайте
+- `index.html`, `ru/index.html`, `he/index.html` — статические страницы с формой обращения
 - `worker.js` — Cloudflare Worker, который принимает форму и пересылает сообщение в Telegram
 - `wrangler.toml.example` — пример конфигурации Wrangler
 
@@ -28,16 +28,16 @@ curl https://api.telegram.org/botYOUR_BOT_TOKEN/getUpdates
 - `TG_CHAT_ID`
 
 И переменную:
-- `ALLOWED_ORIGIN = https://maxfullstackcom.github.io`
+- `ALLOWED_ORIGIN = https://maxfullstack.com`
 
 ### 5. Задеплоить Worker
 Используй `worker.js` как основной файл.
 
 ### 6. Подставить URL воркера в сайт
-В `index.html` замени:
+В `script.js` замени:
 
 ```js
-const TELEGRAM_WEBHOOK_URL = 'https://example.your-subdomain.workers.dev';
+const CONTACT_ENDPOINT = 'https://example.your-subdomain.workers.dev';
 ```
 
 на реальный URL твоего Worker.

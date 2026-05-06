@@ -77,7 +77,8 @@ export default {
 
       return json({ ok: true }, 200, cors);
     } catch (error) {
-      return json({ ok: false, error: String(error) }, 500, cors);
+      console.error('Contact relay failed', error);
+      return json({ ok: false, error: 'Internal server error' }, 500, cors);
     }
   },
 };
@@ -99,7 +100,9 @@ function json(data, status, headers = {}) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json; charset=utf-8',
+      'X-Content-Type-Options': 'nosniff',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
       ...headers,
     },
   });
