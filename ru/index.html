@@ -91,17 +91,9 @@
         <p class="section-title">Контакт</p>
         <h2 id="contact-title">Расскажите, что нужно улучшить</h2>
         <p class="muted">Отправьте короткое описание — я отвечу с практичными следующими шагами, примерным объемом работ и приоритетами оптимизации.</p>
-        <form class="contact-form panel" data-contact-form method="post" action="" novalidate>
-          <div class="field"><label for="service">Услуга</label><select id="service" name="service"><option value="">Услуги</option><option>Landing pages</option><option>Business website</option><option>SEO audit</option><option>Frontend optimization</option><option>Integration or automation</option></select></div>
-          <div class="field"><label for="name">Имя</label><input id="name" name="name" autocomplete="name" /></div>
-          <div class="field"><label for="company">Компания</label><input id="company" name="company" autocomplete="organization" /></div>
-          <div class="field"><label for="contact-input">Email или Telegram <span aria-hidden="true">*</span></label><input id="contact-input" name="contact" autocomplete="email" required /></div>
-          <div class="field full"><label for="message">Описание проекта <span aria-hidden="true">*</span></label><textarea id="message" name="message" rows="5" required></textarea></div>
-          <div class="field honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="hp_field" tabindex="-1" autocomplete="off" /></div>
-          <p class="form-note">Секреты не хранятся на странице. Форма использует антиспам и rate limit, когда настроен Worker endpoint.</p>
-          <div class="status" data-form-status role="status" aria-live="polite"></div>
-          <button class="btn btn-primary" type="submit">Отправить запрос</button>
-        </form>
+        <div class="panel">
+          <p>Напишите на <a href="mailto:contact@maxfullstack.com">contact@maxfullstack.com</a> с целями проекта, языками, сроками и ссылками на существующий сайт или материалы.</p>
+        </div>
       </section>
     </main>
     <footer class="shell footer">
@@ -109,6 +101,5 @@
       <span>Сайты, лендинги, интеграции, автоматизация, аудиты и поддержка.</span>
     </footer>
   </div>
-  <script src="/script.js" defer></script>
 </body>
 </html>
