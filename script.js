@@ -1,4 +1,6 @@
-const CONTACT_ENDPOINT = '';
+// Deploy worker.js as "vizitka-contact-relay" (see wrangler.toml.example), then set this URL.
+// Example: https://vizitka-contact-relay.<your-account-subdomain>.workers.dev
+const CONTACT_ENDPOINT = 'https://vizitka-contact-relay.YOUR_SUBDOMAIN.workers.dev';
 
 const form = document.querySelector('[data-contact-form]');
 if (form) {
@@ -22,7 +24,7 @@ if (form) {
       hp_field: data.hp_field || '',
     };
 
-    if (!CONTACT_ENDPOINT) {
+    if (!CONTACT_ENDPOINT || CONTACT_ENDPOINT.includes('YOUR_SUBDOMAIN')) {
       status.classList.add('err');
       status.textContent = 'Contact endpoint is not configured yet. Please email or message via your preferred channel.';
       return;
