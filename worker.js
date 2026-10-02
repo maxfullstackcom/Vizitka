@@ -21,6 +21,11 @@ export default {
       return json({ ok: false, error: 'Referer not allowed' }, 403, cors);
     }
 
+    if (!env.RESEND_API_KEY || !env.CONTACT_TO_EMAIL) {
+      console.error('Contact relay misconfigured: missing RESEND_API_KEY or CONTACT_TO_EMAIL');
+      return json({ ok: false, error: 'Internal server error' }, 500, cors);
+    }
+
     try {
       const body = await request.json();
       const name = safe(body.name, 80);
@@ -47,32 +52,48 @@ export default {
       }
       await env.CONTACT_KV.put(rateKey, '1', { expirationTtl: 60 });
 
+      const subjectLabel = name || company || contact;
       const text = [
-        '📩 Новое обращение с сайта',
+        'New contact form submission from maxfullstack.com',
         '',
-        `👤 Имя: ${name || '—'}`,
-        `🏢 Компания: ${company || '—'}`,
-        `📞 Контакт: ${contact}`,
-        `💬 Сообщение: ${message}`,
+        `Name: ${name || '—'}`,
+        `Company: ${company || '—'}`,
+        `Contact: ${contact}`,
         '',
-        `🌐 Источник: ${source || '—'}`,
-        `🕒 Время: ${sentAt || '—'}`,
-        `🧭 IP: ${ip}`,
+        'Message:',
+        message,
+        '',
+        `Source: ${source || '—'}`,
+        `Submitted at: ${sentAt || '—'}`,
+        `IP: ${ip}`,
       ].join('\n');
 
-      const tgResponse = await fetch(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendMessage`, {
+      const from = env.CONTACT_FROM_EMAIL || 'Max Full Stack <onboarding@resend.dev>';
+      const emailPayload = {
+        from,
+        to: [env.CONTACT_TO_EMAIL],
+        subject: `Site inquiry: ${subjectLabel}`.slice(0, 200),
+        text,
+      };
+
+      const replyTo = extractReplyTo(contact);
+      if (replyTo) {
+        emailPayload.reply_to = replyTo;
+      }
+
+      const emailResponse = await fetch('https://api.resend.com/emails', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: env.TG_CHAT_ID,
-          text,
-          disable_web_page_preview: true,
-        }),
+        headers: {
+          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailPayload),
       });
 
-      const tgData = await tgResponse.json();
-      if (!tgResponse.ok || !tgData.ok) {
-        return json({ ok: false, error: 'Telegram send failed', telegram: tgData }, 502, cors);
+      if (!emailResponse.ok) {
+        const detail = (await emailResponse.text()).slice(0, 300);
+        console.error('Email send failed', emailResponse.status, detail);
+        return json({ ok: false, error: 'Delivery failed' }, 502, cors);
       }
 
       return json({ ok: true }, 200, cors);
@@ -83,6 +104,11 @@ export default {
   },
 };
 
+function extractReplyTo(contact) {
+  const match = contact.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+  return match ? match[0] : null;
+}
+
 function safe(value, maxLen) {
   return String(value || '').trim().replace(/\s+/g, ' ').slice(0, maxLen);
 }
@@ -92,7 +118,7 @@ function corsHeaders(origin) {
     'Access-Control-Allow-Origin': origin,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
-    'Vary': 'Origin',
+    Vary: 'Origin',
   };
 }
 

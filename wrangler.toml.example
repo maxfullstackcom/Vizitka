@@ -8,3 +8,9 @@ id = "PUT_YOUR_KV_NAMESPACE_ID_HERE"
 
 [vars]
 ALLOWED_ORIGIN = "https://maxfullstack.com"
+# Must be a sender verified in Resend (domain or onboarding@resend.dev for testing).
+CONTACT_FROM_EMAIL = "Max Full Stack <contact@maxfullstack.com>"
+
+# Secrets (wrangler secret put … — never commit real values):
+# RESEND_API_KEY   — API key from https://resend.com/api-keys
+# CONTACT_TO_EMAIL — inbox that receives form submissions (e.g. you@maxfullstack.com)
